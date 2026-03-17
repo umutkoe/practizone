@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practizone Portal</title>
+    <meta
+      name="description"
+      content="Log in, register, or post shifts through the Practizone portal built for employers, professionals, and on-the-fly guest submissions."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/webp" href="practizone-img/logo.webp" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">
+          <img src="practizone-img/logo.webp" alt="Practizone logo" />
+        </a>
+        <button class="mobile-toggle" data-mobile-toggle aria-expanded="false" aria-label="Open menu">Menu</button>
+        <nav class="nav-wrap" data-nav-wrap>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="staffing.html">Staffing</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="portal.html">Portal</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <div class="portal-control" data-portal-control>
+            <button
+              class="btn btn-primary portal-btn"
+              type="button"
+              data-portal-toggle
+              data-portal-link="portal.html"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="portal-menu"
+            >
+              Portal
+              <span class="portal-chevron" aria-hidden="true"><i class="fas fa-chevron-down"></i></span>
+            </button>
+            <div class="portal-menu" id="portal-menu" data-portal-menu aria-hidden="true">
+              <p class="portal-label">Choose login or register</p>
+              <a href="https://www.stafstar.com/agency/practizone/login/employer" target="_blank" rel="noreferrer">
+                <i class="fas fa-sign-in-alt"></i> Employer Login
+              </a>
+              <a href="https://www.stafstar.com/agency/practizone/login/professional" target="_blank" rel="noreferrer">
+                <i class="fas fa-user-check"></i> Professional Login
+              </a>
+              <a href="https://www.stafstar.com/agency/practizone/job-posting" target="_blank" rel="noreferrer">
+                <i class="fas fa-file-alt"></i> Guest Posting
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="reading-progress-bar"></div>
+
+    <main>
+      <section class="page-hero">
+        <div class="container page-hero-grid">
+          <div class="hero-copy reveal-up">
+            <span class="eyebrow">Practizone Portal</span>
+            <h1>One destination for employer, professional, and guest access.</h1>
+            <p>
+              Visit the portal to log in, register, or post a shift. Practizone connects clinics with trusted dental
+              talent, while professionals control their schedules and certifications in a single workspace.
+            </p>
+            <div class="hero-actions">
+              <a
+                class="btn btn-primary"
+                href="https://www.stafstar.com/agency/practizone/login/employer"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Employer Login
+              </a>
+              <a
+                class="btn btn-secondary"
+                href="https://www.stafstar.com/agency/practizone/login/professional"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Professional Login
+              </a>
+            </div>
+            <p style="margin-top: 0.8rem; color: var(--muted);">
+              Need to submit a one-off role? <a href="https://www.stafstar.com/agency/practizone/job-posting" target="_blank" rel="noreferrer">Click here</a> for guest postings.
+            </p>
+          </div>
+          <div class="hero-image-wrap soft-scale">
+            <img src="practizone-img/pexels-olly-3779697.jpg" alt="Dental professionals collaborating" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-intro reveal-up">
+            <h2>Portal quick paths</h2>
+            <p>Pick the lane that makes the most sense for your role and get to the right dashboard without extra clicks.</p>
+          </div>
+          <div class="card-grid stagger-parent">
+            <article class="card reveal-up">
+              <span class="icon-grid"><i class="fas fa-briefcase"></i></span>
+              <span class="badge">Employers</span>
+              <h3>Manage staffing requests</h3>
+              <p>Review credentialed candidates, approve shifts, and keep every placement documented inside the same inbox.</p>
+              <a class="btn btn-ghost" href="https://www.stafstar.com/agency/practizone/login/employer" target="_blank" rel="noreferrer">Go to employer portal</a>
+            </article>
+            <article class="card reveal-up">
+              <span class="icon-grid"><i class="fas fa-user-md"></i></span>
+              <span class="badge">Professionals</span>
+              <h3>Curate your schedule</h3>
+              <p>Update certifications, book shifts, and message clinics from a single profile that stays synchronized across placements.</p>
+              <a class="btn btn-ghost" href="https://www.stafstar.com/agency/practizone/login/professional" target="_blank" rel="noreferrer">Log in as a professional</a>
+            </article>
+            <article class="card reveal-up">
+              <span class="icon-grid"><i class="fas fa-paper-plane"></i></span>
+              <span class="badge">Guest Posting</span>
+              <h3>Need temporary coverage?</h3>
+              <p>Drop in a one-off job posting and let the Practizone network deliver urgent support in hours, not days.</p>
+              <a class="btn btn-ghost" href="https://www.stafstar.com/agency/practizone/job-posting" target="_blank" rel="noreferrer">Submit a guest posting</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt">
+        <div class="container stagger-parent">
+          <div class="section-intro reveal-up">
+            <h2>Built for clarity</h2>
+            <p>Every panel in the portal is built to surface what matters: compliance, schedules, and transparent approvals.</p>
+          </div>
+          <div class="split">
+            <article class="panel reveal-up">
+              <h3>Secure collaboration</h3>
+              <p>Two-step verification, invite-only accounts, and audit-ready logs keep every staffing decision traceable.</p>
+              <ul>
+                <li>Role-based access for admins, coordinators, and clinicians.</li>
+                <li>Instant notices when clinics update shifts or credentials expire.</li>
+                <li>Secure file storage for certifications and references.</li>
+              </ul>
+            </article>
+            <article class="panel reveal-up">
+              <h3>Responsive support</h3>
+              <p>Need help with onboarding, a shift slip, or something else? Portal support connects you with our team in real time.</p>
+              <p>
+                Reach out via <a href="mailto:info@practizone.ca">info@practizone.ca</a> or tap the chat module inside the portal to get a teammate on call.
+              </p>
+              <a class="btn btn-primary" href="contact.html">Request support</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-intro reveal-up">
+            <h2>Need onboarding?</h2>
+            <p>We host live walkthroughs every Friday to walk through hiring pipelines, compliance reports, and guest postings.</p>
+          </div>
+          <div class="card-grid">
+            <article class="card reveal-up">
+              <h3>Employer training</h3>
+              <p>Learn how to post shifts, review candidate matches, and keep hiring managers updated with a single click.</p>
+            </article>
+            <article class="card reveal-up">
+              <h3>Professional guide</h3>
+              <p>Get tips on profile optimization, uploading credentials, and setting availability for the busiest weeks.</p>
+            </article>
+            <article class="card reveal-up">
+              <h3>Guest shift cheatsheet</h3>
+              <p>Send a job to our talent desk and receive curated options within a four-hour window.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand">
+              <img src="practizone-img/logo.webp" alt="Practizone logo" />
+            </div>
+            <p>Friendly, compassionate, and top-tier professionals for modern dental clinics in Ontario.</p>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <p><a href="mailto:info@practizone.ca">info@practizone.ca</a></p>
+            <p><a href="tel:+16478357172">+1 647-835-7172</a></p>
+          </div>
+          <div>
+            <h4>Social</h4>
+            <p><a href="https://api.whatsapp.com/send?phone=16478357172" target="_blank" rel="noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a></p>
+            <p><a href="https://www.facebook.com/practizone" target="_blank" rel="noreferrer"><i class="fab fa-facebook"></i> Facebook</a></p>
+            <p><a href="https://www.instagram.com/practizone/" target="_blank" rel="noreferrer"><i class="fab fa-instagram"></i> Instagram</a></p>
+          </div>
+          <div>
+            <h4>Apps</h4>
+            <p><a href="https://apps.apple.com/tr/app/practizone-staffing-platform/id6740997458" target="_blank" rel="noreferrer"><i class="fab fa-app-store"></i> App Store</a></p>
+            <p><a href="#" target="_blank" rel="noreferrer"><i class="fab fa-google-play"></i> Play Store</a></p>
+          </div>
+          <div>
+            <h4>Portal</h4>
+            <p><a href="https://www.stafstar.com/agency/practizone/job-posting" target="_blank" rel="noreferrer"><i class="fas fa-file-alt"></i> Guest Posting</a></p>
+            <p><a href="https://www.stafstar.com/agency/practizone/login/employer" target="_blank" rel="noreferrer"><i class="fas fa-sign-in-alt"></i> Employer</a></p>
+            <p><a href="https://www.stafstar.com/agency/practizone/login/professional" target="_blank" rel="noreferrer"><i class="fas fa-user-check"></i> Professional</a></p>
+          </div>
+        </div>
+        <div class="footer-legal">
+          <div>
+            <a href="terms.html">Terms of Use</a> | <a href="privacy.html">Privacy Policy</a> |
+            <a href="terms-conditions.html">Terms and Conditions</a>
+          </div>
+          <div>Copyright <span class="current-year">2025</span> Practizone. All rights reserved.</div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

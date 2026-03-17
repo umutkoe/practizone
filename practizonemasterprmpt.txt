@@ -1,0 +1,258 @@
+
+Website language will be English
+remove services page and dont use any informations
+for colors follow logo colors insidde the assets folder
+use `practizone-img/logo.webp` as the main brand logo (header/footer/favicon)
+
+UI Design Rules (Non-Negotiable)
+- Do NOT use glassmorphism, neumorphism, claymorphism, frosted blur cards, or overly decorative trendy UI effects.
+- Keep the interface modern, clean, and professional. Avoid exaggerated visuals.
+- Use simple depth: subtle shadows, clear spacing, strong typography hierarchy, and clean sections.
+- Keep border radius moderate (not overly rounded), and avoid noisy gradients.
+- Focus on readability, trust, and medical-corporate clarity.
+- Use only project images from `practizone-img/` and keep image treatments natural (no heavy filters).
+- Reuse logo colors as the primary palette and keep contrast accessible.
+- Animations should be minimal and purposeful (soft fade/slide only).
+- Layout should be responsive on desktop and mobile without visual clutter.
+
+Simple employment agency website 
+Remove the extras about other services. 
+Want to add videos on how to register 
+App Android and Apple
+
+---------------
+
+0. Genel Marka Kimliği & Vibe (Tasarım Sistemi İçin)
+Şirket Adı: Practizone
+.
+Sektör: Dental Personel Sağlama ve Klinik Danışmanlık Hizmetleri (Ontario, Kanada)
+.
+Hedef Kitle: İkiye ayrılıyor; 1) Doğru personeli arayan Dental Klinikler/İşverenler, 2) İş arayan Dental Profesyoneller/Adaylar
+.
+Marka Tonu (Vibe): Profesyonel, güvenilir, topluluk odaklı, yenilikçi ve destekleyici
+. Tasarımda hastaya ve kliniğe duyulan özeni yansıtan, temiz ve güven veren bir medikal/kurumsal arayüz kullanılmalı.
+Öne Çıkan Başarı Metrikleri (Güven Unsurları): 350+ Profesyonel, 20+ Yıllık Sektör Tecrübesi, 4.98 Ortalama Puan, %100 Kalifiye Personel, 7/24 Acil Destek
+.
+
+--------------------------------------------------------------------------------
+1. Global Bileşenler (Tüm Sayfalarda Olacaklar)
+Header (Üst Menü):
+Logo/Marka Adı: Practizone
+.
+Navigasyon Linkleri: Home, Services, Practizone Staffing, Pricing, Testimonials, About, Contact
+.
+Header Butonu (CTA): "Access Dashboard" (Kullanıcı girişi/paneli için)
+.
+Footer (Alt Menü):
+İletişim Bilgileri:
+Email: info@practizone.ca
+.
+Telefon: +1 647-835-7172
+.
+Sosyal Medya Linkleri: Facebook, Instagram, Whatsapp
+.
+Promosyon/Bülten: "Get 10%-Off Your First Order" (İlk siparişte %10 indirim)
+.
+Hukuki Linkler: Terms of Use, Privacy Policy, Terms and Conditions
+.
+Telif Hakkı: Copyright ©2025 Practizone. All rights reserved
+.
+
+--------------
+
+2. Adım 1: Ana Sayfa (Home) Bilgi Bankası
+Ana sayfa, ziyaretçiyi karşılayan ve iki temel hedef kitleyi (Klinikler ve Adaylar) doğru yönlendirmesi gereken en önemli vitrindir. Vibe coding için ana sayfa yapısı şu şekilde olmalıdır:
+Hero Section (Karşılama Ekranı):
+Başlık: Top Dental Staffing Solutions in Ontario Trusted by Clinics and Professionals
+.
+Alt Metin: Ontario'daki dental klinikleri en üst düzey dental profesyonellerle (hijyenistler, asistanlar, ofis personeli) bir araya getiriyoruz. İster kısa süreli geçici ister uzun süreli kalıcı personel arayın, hızlı ve bütçe dostu çözümler sunuyoruz
+.
+CTA Butonları: Muhtemelen ikiye ayrılmalı (Örn: "Get Started"
+ ve "Access Dashboard"
+).
+Özellikler / Neden Biz? (Why Choose Practizone?) Bölümü:
+Zamanınız (Your Time): Kendi programınızı seçin ve esnek çalışın
+.
+Kazancınız (Your Pay): Görev başına ödeme, şeffaf ücretler ve maksimum kazanç
+.
+Kendi Yolunuz (Your Way): İhtiyacınız olan her an gerçek zamanlı ve kişiselleştirilmiş destek
+.
+Kullanıcı Yolculuğu Yönlendirmesi (Choose Your Journey):
+Klinikler/İşverenler İçin (For Clinics / Employers): Kliniğinizin başarısına katkıda bulunacak, doğrulanmış profesyonellerden oluşan havuzumuza erişin
+.
+Profesyoneller/Adaylar İçin (For Professionals / Candidates): Yeteneklerinizin takdir edildiği ve ödüllendirildiği geniş ağımıza katılarak kariyerinizi yükseltin
+.
+Trust/Social Proof (Güven Bölümü):
+Burada istatistikler verilebilir: "350+ Professionals, 20+ Years Experience, 4.98 Avg Rating"
+.
+Misyon Vurgusu: "Amacımız dostane, şefkatli ve en üst düzey profesyoneller sağlamaktır."
+.
+
+---------------------------------------------
+
+3. Adım: Services (Hizmetler) Sayfası Bilgi Bankası
+Servisler sayfasının genel amacı, dental ve medikal klinikler için özel olarak hazırlanmış, büyüme hedeflerine ve benzersiz ihtiyaçlara uygun profesyonel personel ve danışmanlık çözümlerini sunmaktır
+. Vibe coding aracınızda bu sayfayı tasarlarken hizmetleri okunaklı "Hizmet Kartları (Service Cards)" veya ızgara (grid) yapısında kurgulayabilirsiniz.
+Hizmet Kalemleri (Ana Bölümler):
+Virtual Assistant (Sanal Asistan): Klinikteki ekibin yükünü hafifletmek için Kanada merkezli gerçek asistanların sunduğu uzaktan destek hizmetidir
+. Sigorta sorguları, alacak hesapları (accounts receivable), tedavi tahmini onayı ve randevu hatırlatmaları (recalls) gibi konularda görev alırlar
+.
+Bookkeeping for Dentists (Diş Hekimleri İçin Muhasebe): Kliniklerin tamamen hasta bakımına odaklanabilmesi için sunulan, özel ve güvenilir muhasebe hizmetidir
+.
+Compliance Solutions (Uyumluluk Çözümleri): Genel Muayenehane Uyumluluğu ve IPAC (Enfeksiyon Önleme ve Kontrol) desteğini kapsar
+. Vibe Coding Notu: Bu bölüm için özel bir UX detayı var; kullanıcıların muayenehane büyüklüğüne göre şeffaf bir ücretlendirme görebileceği açılır (dropdown) bir form tasarımı eklenmelidir
+.
+Practice Audit (Muayenehane Denetimi): Kliniğin operasyonları, finansmanı ve uyumluluğu üzerine 360 derecelik tam bir inceleme sunarak verimsizlikleri tespit eder, riski azaltır ve kârlılığı artırır
+.
+Coaching & Consulting (Koçluk ve Danışmanlık): Kliniği büyütmek, yeniden yapılandırmak veya optimize etmek isteyenler için hedeflere göre özelleştirilebilir paketlerdir
+.
+Employee Training (Çalışan Eğitimi): Resepsiyondan klinik desteğe kadar tüm ekibin gelişimi için sürekli eğitim imkanları sağlar
+.
+Yakında Gelecekler (Coming Soon) Bölümü:
+Online Purchase Store: Muayenehanelerin büyümesini destekleyecek profesyonel kılavuzların ve kaynakların satılacağı tam kapsamlı dijital mağaza
+.
+Consulting Packages: Pratik ve sonuç odaklı stratejik danışmanlık paketleri
+.
+
+--------------------------------------------------------------------------------
+4. Adım: Practizone Staffing (Personel Sağlama) Sayfası Bilgi Bankası
+Bu sayfa, geçici (Temp) ve kalıcı (Permanent) personel hizmetlerine odaklanır
+. Hedef, sadece işe alım yapmak değil, kliniğin performansını artıran uzun vadeli, uyumlu eşleşmeler yaratmaktır
+.
+Vurgulanacak Ana Değerler (Neden Biz? / Özellikler Sütunları):
+Depth of Qualified Candidates (Nitelikli Aday Derinliği): Hijyenistlerden asistanlara, hemşirelerden resepsiyonistlere kadar uzanan, önceden onaylanmış geniş bir yetenek havuzu
+.
+Affordability Meets Quality (Kalite ve Uygun Fiyat): Bütçeyi sarsmadan en iyi yeteneklere ulaşılmasını sağlayan uygun fiyatlandırma
+.
+Save Time, Increase Efficiency (Zaman Tasarrufu ve Verimlilik): Uzun ve stresli işe alım sürecini devralarak kliniklerin sadece işlerine ve hastalarına odaklanmasını sağlama
+.
+Personalised Approach (Kişiselleştirilmiş Yaklaşım): Her yerleşimin, kliniğin kültürü ve uzun vadeli hedefleriyle tam uyumlu olmasını sağlayan birebir iletişim
+.
+Sayfa Sonu (CTA) Bileşenleri:
+Sonsuz CV inceleme ve sonuçsuz mülakatları bitirme sözü veren güçlü bir kapanış metni
+.
+"Get Started" butonu ve kullanıcıyı teşvik edecek "Get 10%-Off Your First Order" (İlk Siparişinizde %10 İndirim) teklifi
+.
+--------------------------
+
+
+
+5. Adım: Pricing (Fiyatlandırma) Sayfası Bilgi Bankası
+Bu sayfa, şeffaflık üzerine kuruludur ve klinikler için farklı rollerdeki personellerin çalışma sürelerine göre maliyetlerini net bir şekilde gösterir.
+Sayfa Başlığı ve Alt Metin:
+Ana başlık olarak "Transparent Pricing for Dental Staffing" (Dental Personel İçin Şeffaf Fiyatlandırma) kullanılmalıdır
+.
+Alt metin olarak ise kullanıcıyı yönlendiren şu mesaj verilmelidir: "Choose the right staffing solution — from temporary support to full-time dental professionals" (Geçici destekten tam zamanlı dental profesyonellere kadar doğru personel çözümünü seçin)
+.
+Fiyatlandırma Kartları (Roller ve Ücretler): Tasarımda her meslek grubu için bir kart veya blok oluşturulmalı. Her kartın içinde Temporary (Geçici), Part-Time (Yarı Zamanlı) ve Full-Time (Tam Zamanlı) olmak üzere üç farklı fiyat kademesi yer almalıdır
+.
+Registered Dental Hygienist (Kayıtlı Dental Hijyenist): Bu kart, tasarımda görsel olarak öne çıkarılmalı ve üzerinde "Most Popular" (En Popüler) etiketi yer almalıdır
+. Ücretler; Geçici: CA59.99,YarıZamanlı:CA 1799.00, Tam Zamanlı: CA$ 1799.99 şeklindedir
+. Buton: "Book Now"
+.
+Standart Klinik ve Ofis Rolleri: Dental Assistant (Seviye I-II), Dental Office Administrator, Dental Nurse ve Dental Sterilization Technician rollerinin ücretlendirme şablonu tamamen aynıdır
+. Ücretler; Geçici: CA59.99,YarıZamanlı:CA 1799.00, Tam Zamanlı: CA$ 1799.99
+. Buton: "Book Now"
+.
+Dental Floater (Destek Personeli): Ücretler; Geçici: CA39.99,YarıZamanlı:CA 1799.99, Tam Zamanlı: CA$ 1799.99
+. Buton: "Book Now"
+.
+Dental Intern (Stajyer): Tüm seçenekler (Geçici, Yarı Zamanlı, Tam Zamanlı) "Free" (Ücretsiz) olarak listelenmelidir
+. Vibe Coding İçin Önemli UX Notu: Bu rolün eylem butonu diğerlerindeki gibi "Book Now" (Şimdi Rezervasyon Yap) değil, "Apply Now" (Şimdi Başvur) olmalıdır
+.
+Hekim Rolleri (Associate Dentist & Dentist): Ücretler; Geçici: CA599.00,YarıZamanlı:CA 3999.00, Tam Zamanlı: CA$ 3999.00
+. Buton: "Book Now"
+
+--------------------------
+
+6. Adım: About (Hakkımızda) Sayfası Bilgi Bankası
+Bu sayfa üç ana bileşenden oluşmalıdır: Şirketin misyonu/değerleri, kurucu hikayesi ve topluluğa katılma çağrısı.
+Hero / Giriş Bölümü (About Practizone):
+Ana Mesaj: Sadece sıradan bir platform değil, Kanada'nın benzersiz dental kültürünü ve ruhunu benimseyen %100 Kanada sermayeli bir topluluk
+.
+Alt Metin: Dental topluluğa sarsılmaz bir bağlılık ve mükemmellik anlayışıyla hizmet etmek temel prensibimizdir
+.
+Kurumsal Değerler (Tasarım Önerisi: İkonlu Grid / Kart Yapısı): Kullanıcıya markanın neyi temsil ettiğini göstermek için 6 temel sütun (İngilizce başlıklarla) vurgulanmalıdır:
+Mission (Misyon): Boşlukları doldurarak, personeli optimize ederek ve doğru kaynaklarla kliniklerin büyümesini sağlayarak Kanada çapındaki dental muayenehanelere yenilik ve canlılık getirmek
+.
+Empowerment (Güçlendirme): Kliniklerin idari sıkıntılar yaşamadan tamamen hasta bakımına odaklanabilmesi için onları güçlendirmek
+.
+Excellence (Mükemmellik): Personel hizmetlerinden, yakında çıkacak muayenehane yönetimi ve sürekli eğitim araçlarına kadar her şeyde ortaklarımıza her zaman en iyisini sunmak
+.
+Expansion (Genişleme): Yerel toplulukların ruhuyla bütünleşmek ve her boyuttaki kliniğin birinci sınıf personele ulaşmasını sağlamak için tüm eyaletlere yayılmak
+.
+Education (Eğitim): Sadece açık pozisyonları doldurmakla kalmayıp, yakında sunulacak sürekli eğitim araçlarıyla sektörün gelişimine katkıda bulunmak
+.
+Engagement (Etkileşim): İlişkilere değer vererek, her kliniğin benzersiz ihtiyaçlarını anlamak ve karşılıklı büyümeyi sağlayan özel çözümler sunmak
+.
+Kurucu Vizyonu / Liderlik Bölümü (Founder & CEO):
+Profil: Eva Ribeiro, Kurucu ve CEO
+. Vibe Coding Notu: Buraya şık bir portre fotoğrafı alanı (placeholder) eklenmelidir.
+Deneyim: Dental sektörde 20 yılı aşkın uygulamalı deneyim ve yenilikçilik
+.
+Eğitim & Uzmanlık: Toronto Üniversitesi'nden Dental Management Certificate (DMC, 2008-2009) sahibi ve 2023-2024 programı ile sürekli eğitime bağlılık
+.
+Yaklaşım: İşin sadece klinik boyutunda değil; yönetim, operasyon optimizasyonu ve hasta deneyimini iyileştirme konularında uzman. Diş hekimliğinin iş (business) tarafı ile hasta odaklı yaklaşımı mükemmel bir şekilde dengeliyor
+.
+Kapanış / CTA Bölümü (Join the Practizone Family):
+Mesaj: Bu sadece bir iş değil; uzmanlıkların paylaşıldığı, mükemmelliğe adanmış bir ekosistem yaratma meselesidir
+.
+Aksiyon: Hem klinikleri hem de profesyonelleri bu büyüyen ağın hayati bir parçası olmaya davet eden bir bölüm
+.-----------------
+
+7. Adım: Testimonials (Yorumlar ve Referanslar) Sayfası Bilgi Bankası
+Bu sayfanın tek amacı "Sosyal Kanıt" (Social Proof) sunmaktır. Tasarımda yorumların şık kartlar (testimonial cards) veya kayan bir karusel (carousel) şeklinde gösterilmesi idealdir.
+Giriş ve Güven Rozetleri (Hero & Trust Badges):
+Başlık: We Care about Your Experience
+.
+Alt Metin: If you are in need of high-quality, look no further than our agency
+.
+İstatistikler (Tasarımda ikonlu rozetler şeklinde yan yana dizilebilir): %100 qualified help, 24/7 emergency, 4.98 Avg rating, 350+ Professionals, 20+ Years
+.
+Referans Kartları (Tasarım için Gerçek İçerikler): Vibe coding aracınıza bu gerçek metinleri vererek sahte "lorem ipsum" yerine doğrudan markaya uygun tasarımlar üretmesini sağlayabilirsiniz:
+Dr. Emily Collins (Pediatric Dentist): "Klinğimizdeki yoğun dönemleri idare edecek kalifiye profesyoneller bulmakta zorlanıyorduk. Practizone bizi hızlıca yetenekli uzmanlarla buluşturdu..."
+.
+Dr. Sophie Bennett (Cosmetic Dentist): "Doğru deneyime sahip bir klinik yöneticisi bulmak Practizone ile çalışana kadar imkansız görünüyordu. Bir aydan kısa sürede bizi mükemmel adaylarla tanıştırdılar..."
+.
+Dr. Alicia Turner: "İşe alım sürecimizi dönüştürdüler. Seçtikleri adaylar kliniğimizin ruhuna tam uydu. Dental dünyayı gerçekten anladıkları çok açık."
+.
+Liam Stewart (Office Manager): "Practizone'un sunduğu aday kalitesi ve uygun fiyat benzersiz. Personel bulma endişelerimiz artık geçmişte kaldı."
+.
+Rachel Ling (Dental Hygienist): "Practizone tarafından değerlerimle uyuşan bir kliniğe yönlendirilmek benim için ezber bozan bir deneyim oldu. Kişiselleştirilmiş yaklaşımları öne çıkıyor."
+.
+Dr. Mark Hamilton: "Practizone her defasında beklentilerimizi karşılıyor. Kliniğimiz için doğru uyumu sağlama konusundaki adanmışlıkları olağanüstü."
+.
+Sayfa Sonu CTA (Aksiyon Çağrısı):
+Promosyon: Get 10%-Off Your First Order
+.
+Mesaj: Amacımız dostane, şefkatli ve en üst düzey profesyoneller sağlamaktır
+.
+Buton: "Get Started"
+.
+
+--------------------------------------------------------------------------------
+8. Adım: Contact (İletişim) Sayfası Bilgi Bankası
+İletişim sayfası karmaşadan uzak, hem kliniklerin hem de iş arayanların anında ulaşabileceği iki temel yapıyı (İletişim Bilgileri ve İletişim Formu) yan yana veya alt alta barındırmalıdır.
+Sayfa Başlığı ve Karşılama:
+Başlık: Pop in, Drop Us a Line
+.
+Karşılama Metni: Sorularınız mı var veya muayenehane yönetimi ihtiyaçlarınız için yardıma mı ihtiyacınız var? Practizone ekibi size yardım etmeye her zaman heveslidir. Birlikte kliniğinizi bir üst seviyeye taşıyalım. Başarınız bizim için her şeyden önemli
+.
+İletişim Bilgileri (Sol veya Üst Blok):
+Email: info@practizone.ca
+.
+Telefon: +1 647-835-7172
+.
+Sosyal Medya İkonları: Facebook, Instagram, Whatsapp
+.
+İletişim Formu (Sağ veya Alt Blok):
+Tasarımda "Send Us Message" başlığına sahip temiz bir form alanı olmalı
+.
+Kullanıcıdan alınacak standart bilgiler (İsim, E-posta, Konu, Mesaj) için input alanları bulunmalı (Bu kısımlar standart web UI bileşenleri olarak eklenebilir).
+Formun en altında belirgin bir "Submit" butonu yer almalıdır
+.
+
+-------------------------------------------------------------
+------------------------------------------------------------------------------
+
+
