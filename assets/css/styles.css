@@ -18,6 +18,8 @@
   --shadow-sm: 0 8px 20px rgba(13, 27, 94, 0.08);
   --shadow-md: 0 16px 32px rgba(13, 27, 94, 0.12);
   --shadow-lg: 0 30px 60px rgba(13, 27, 94, 0.16);
+  --orange: #FF7A00;
+  --orange-hover: #E66B00;
   --motion-fast: 220ms;
   --motion-base: 360ms;
   --motion-slow: 520ms;
@@ -135,6 +137,17 @@ a {
 
 .portal-btn {
   gap: 0.35rem;
+  background: var(--orange) !important;
+  border-color: var(--orange) !important;
+  color: #FFFFFF !important;
+  font-size: 1.05rem !important;
+  padding: 0.8rem 1.4rem !important;
+}
+
+.portal-btn:hover {
+  background: var(--orange-hover) !important;
+  border-color: var(--orange-hover) !important;
+  transform: translateY(-1px);
 }
 
 .portal-chevron {

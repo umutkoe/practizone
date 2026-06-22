@@ -45,13 +45,13 @@ Header Butonu (CTA): "Access Dashboard" (Kullanıcı girişi/paneli için)
 .
 Footer (Alt Menü):
 İletişim Bilgileri:
-Email: info@practizone.ca
+Email: Hello@practizone.ca
 .
 Telefon: +1 647-835-7172
 .
-Sosyal Medya Linkleri: Facebook, Instagram, Whatsapp
+Whatsapp: +1 647-835-7172 (İletişim/Contact segmentinde)
 .
-Promosyon/Bülten: "Get 10%-Off Your First Order" (İlk siparişte %10 indirim)
+Sosyal Medya Linkleri: Facebook, Instagram
 .
 Hukuki Linkler: Terms of Use, Privacy Policy, Terms and Conditions
 .
@@ -131,7 +131,7 @@ Personalised Approach (Kişiselleştirilmiş Yaklaşım): Her yerleşimin, klini
 Sayfa Sonu (CTA) Bileşenleri:
 Sonsuz CV inceleme ve sonuçsuz mülakatları bitirme sözü veren güçlü bir kapanış metni
 .
-"Get Started" butonu ve kullanıcıyı teşvik edecek "Get 10%-Off Your First Order" (İlk Siparişinizde %10 İndirim) teklifi
+"Get Started" butonu ve kullanıcıyı teşvik edecek "Ready to Get Started?" (Harekete Geçirici Çağrı) teklifi
 .
 --------------------------
 
@@ -223,7 +223,7 @@ Rachel Ling (Dental Hygienist): "Practizone tarafından değerlerimle uyuşan bi
 Dr. Mark Hamilton: "Practizone her defasında beklentilerimizi karşılıyor. Kliniğimiz için doğru uyumu sağlama konusundaki adanmışlıkları olağanüstü."
 .
 Sayfa Sonu CTA (Aksiyon Çağrısı):
-Promosyon: Get 10%-Off Your First Order
+Harekete Geçirici Çağrı: Ready to Get Started?
 .
 Mesaj: Amacımız dostane, şefkatli ve en üst düzey profesyoneller sağlamaktır
 .
@@ -239,11 +239,13 @@ Başlık: Pop in, Drop Us a Line
 Karşılama Metni: Sorularınız mı var veya muayenehane yönetimi ihtiyaçlarınız için yardıma mı ihtiyacınız var? Practizone ekibi size yardım etmeye her zaman heveslidir. Birlikte kliniğinizi bir üst seviyeye taşıyalım. Başarınız bizim için her şeyden önemli
 .
 İletişim Bilgileri (Sol veya Üst Blok):
-Email: info@practizone.ca
+Email: Hello@practizone.ca
 .
 Telefon: +1 647-835-7172
 .
-Sosyal Medya İkonları: Facebook, Instagram, Whatsapp
+Whatsapp: +1 647-835-7172
+.
+Sosyal Medya İkonları: Facebook, Instagram
 .
 İletişim Formu (Sağ veya Alt Blok):
 Tasarımda "Send Us Message" başlığına sahip temiz bir form alanı olmalı
