@@ -12,7 +12,7 @@ const currentPath = window.location.pathname.split("/").pop() || "index.html";
 const navLinks = document.querySelectorAll(".nav-links a");
 
 navLinks.forEach((link) => {
-  const linkPath = link.getAttribute("href");
+  const linkPath = (link.getAttribute("href") || "").replace(/^\//, "");
   if (linkPath === currentPath) {
     link.classList.add("active");
   }
