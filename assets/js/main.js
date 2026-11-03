@@ -114,3 +114,54 @@ document.addEventListener("DOMContentLoaded", () => {
     el.textContent = String(y);
   });
 });
+
+// Outbound referral tracking for PractiOne links
+function trackOutboundReferral(targetUrl, linkText, placement) {
+  const eventPayload = {
+    event: 'outbound_referral_click',
+    link_url: targetUrl,
+    link_domain: 'practione.ca',
+    link_text: linkText,
+    placement: placement || 'referral_button',
+    outbound: true,
+    timestamp: new Date().toISOString()
+  };
+
+  // Push to dataLayer (Google Tag Manager)
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(eventPayload);
+
+  // Send event via gtag if present (Google Analytics 4)
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'outbound_referral_click', {
+      link_url: targetUrl,
+      link_domain: 'practione.ca',
+      link_text: linkText,
+      placement: placement,
+      outbound: true,
+      transport_type: 'beacon'
+    });
+  }
+
+  // Dispatch CustomEvent on window for custom analytics listeners
+  window.dispatchEvent(new CustomEvent('outbound_referral_click', { detail: eventPayload }));
+
+  console.info('[Analytics] outbound_referral_click dispatched:', eventPayload);
+}
+
+// Global delegated listener: Zero DOM overhead, resilient to timing and dynamic nodes
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a[href*="practione.ca"]');
+  if (!link) return;
+
+  const targetUrl = link.href;
+  const linkText = (link.textContent || '').trim().replace(/\s+/g, ' ');
+  const placement =
+    link.dataset.placement ||
+    (link.closest('.consulting-teaser') ? 'homepage_teaser' :
+     link.closest('.hero-actions') ? 'hero_cta' :
+     link.closest('.window-actions') ? 'middle_cta' :
+     link.closest('.site-footer') ? 'footer' : 'page_link');
+
+  trackOutboundReferral(targetUrl, linkText, placement);
+});

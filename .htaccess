@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1. Canonical Domain: Redirect www (http & https) to non-www apex (https://practizone.ca/)
+  RewriteCond %{HTTP_HOST} ^www\.practizone\.ca$ [NC]
+  RewriteRule ^(.*)$ https://practizone.ca/$1 [R=301,L]
+
+  # 2. Force HTTPS for non-www domain
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} ^practizone\.ca$ [NC]
+  RewriteRule ^(.*)$ https://practizone.ca/$1 [R=301,L]
+
+  # 3. Canonical Root: Redirect /index.html requests to root (/)
+  RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html(?:\?[^\ ]*)?\ HTTP/ [NC]
+  RewriteRule ^index\.html$ https://practizone.ca/ [R=301,L]
+</IfModule>
