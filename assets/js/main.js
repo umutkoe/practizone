@@ -165,3 +165,118 @@ document.addEventListener('click', (event) => {
 
   trackOutboundReferral(targetUrl, linkText, placement);
 });
+
+// Contact Form Activation & Lead Attribution Tracking
+document.addEventListener("DOMContentLoaded", () => {
+  const contactForm = document.querySelector("form.form-grid");
+  if (!contactForm) return;
+
+  // 1. Lead Attribution: Extract UTM parameters and referring URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get("utm_source");
+  const utmMedium = urlParams.get("utm_medium");
+  const utmCampaign = urlParams.get("utm_campaign");
+
+  const utmSourceInput = document.getElementById("utm_source");
+  const utmMediumInput = document.getElementById("utm_medium");
+  const utmCampaignInput = document.getElementById("utm_campaign");
+  const referringSiteInput = document.getElementById("referring_site");
+  const submissionDateInput = document.getElementById("submission_date");
+
+  if (utmSourceInput && utmSource) {
+    utmSourceInput.value = utmSource;
+  }
+  if (utmMediumInput && utmMedium) {
+    utmMediumInput.value = utmMedium;
+  }
+  if (utmCampaignInput && utmCampaign) {
+    utmCampaignInput.value = utmCampaign;
+  }
+  if (referringSiteInput) {
+    referringSiteInput.value = document.referrer || "direct";
+  }
+
+  // Helper for displaying form status alerts
+  const alertBox = document.getElementById("form-alert");
+  const displayStatus = (type, htmlMessage) => {
+    if (alertBox) {
+      alertBox.className = `form-status is-${type}`;
+      alertBox.innerHTML = htmlMessage;
+      alertBox.style.display = "block";
+      alertBox.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  };
+
+  // Check URL query parameters for redirect return (?submitted=true or ?success=true)
+  if (urlParams.get("submitted") === "true" || urlParams.get("success") === "true") {
+    displayStatus(
+      "success",
+      '<i class="fas fa-check-circle"></i> <strong>Thank you!</strong> Your message has been sent successfully. A PractiZone representative will contact you shortly.'
+    );
+    contactForm.style.display = "none";
+  }
+
+  // 2. Submit Handler: Honeypot check, timestamp population, and AJAX submission
+  contactForm.addEventListener("submit", async (e) => {
+    // Honeypot spam verification
+    const honeypot = contactForm.querySelector('input[name="_hp_check"]');
+    if (honeypot && honeypot.value.trim() !== "") {
+      e.preventDefault();
+      console.warn("[Anti-Spam] Submission blocked: Honeypot trap triggered.");
+      return;
+    }
+
+    // Populate submission timestamp (ISO string)
+    if (submissionDateInput) {
+      submissionDateInput.value = new Date().toISOString();
+    }
+
+    // Client-side privacy compliance consent check
+    const consentCheckbox = document.getElementById("privacy_consent");
+    if (consentCheckbox && !consentCheckbox.checked) {
+      e.preventDefault();
+      displayStatus(
+        "error",
+        '<i class="fas fa-exclamation-circle"></i> Please accept the Privacy Policy to proceed with your submission.'
+      );
+      return;
+    }
+
+    // AJAX Form Submission
+    e.preventDefault();
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : "Submit";
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    }
+
+    try {
+      const formData = new FormData(contactForm);
+      const response = await fetch("https://formsubmit.co/ajax/info@practizone.ca", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json"
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        displayStatus(
+          "success",
+          '<i class="fas fa-check-circle"></i> <strong>Thank you!</strong> Your message has been received. Our team will contact you shortly.'
+        );
+        contactForm.reset();
+        contactForm.style.display = "none";
+      } else {
+        // Fallback to standard form submission if AJAX response is not ok
+        console.warn("[FormSubmit] AJAX non-200 response, falling back to standard submit:", response.status);
+        contactForm.submit();
+      }
+    } catch (err) {
+      console.warn("[FormSubmit] Fetch error, falling back to standard submit:", err);
+      // Fallback to standard submit
+      contactForm.submit();
+    }
+  });
+});
