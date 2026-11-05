@@ -15,6 +15,11 @@ navLinks.forEach((link) => {
   const linkPath = (link.getAttribute("href") || "").replace(/^\//, "");
   if (linkPath === currentPath) {
     link.classList.add("active");
+    const parentDropdown = link.closest(".nav-item-dropdown");
+    if (parentDropdown) {
+      const toggle = parentDropdown.querySelector(".nav-dropdown-toggle");
+      if (toggle) toggle.classList.add("active");
+    }
   }
 });
 

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Disallow portal internal redirects or temp assets if needed
+Sitemap: https://practizone.ca/sitemap.xml

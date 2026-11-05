@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Practizone</title>
     <meta name="description" content="Contact Practizone for dental staffing and practice support solutions." />
+    <link rel="canonical" href="https://practizone.ca/contact.html" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -24,6 +25,28 @@
     <link rel="preload" as="image" href="practizone-img/6ee7d7ec-b576-41b1-ad17-e4ce0cb1bb3c.webp" type="image/webp" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Schema.org BreadcrumbList Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://practizone.ca/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://practizone.ca/contact.html"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -35,7 +58,14 @@
         <nav class="nav-wrap" data-nav-wrap>
           <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="staffing.html">Staffing</a></li>
+            <li class="nav-item-dropdown">
+              <a href="staffing.html" class="nav-dropdown-toggle">Staffing <i class="fas fa-chevron-down nav-chevron"></i></a>
+              <ul class="nav-dropdown-menu">
+                <li><a href="staffing.html">All Staffing Services</a></li>
+                <li><a href="hygienist-staffing.html">Dental Hygienist Staffing</a></li>
+                <li><a href="assistant-staffing.html">Dental Assistant Staffing</a></li>
+              </ul>
+            </li>
             <li><a href="/consulting-services.html">Consulting &amp; Training</a></li>
             <li><a href="pricing.html">Pricing</a></li>
             <li><a href="testimonials.html">Testimonials</a></li>
@@ -180,7 +210,9 @@
             <p><a href="#" target="_blank"><i class="fab fa-google-play"></i> Play Store</a></p>
           </div>
           <div>
-            <h4>Portal &amp; Services</h4>
+            <h4>Staffing &amp; Services</h4>
+            <p><a href="hygienist-staffing.html"><i class="fas fa-tooth"></i> Dental Hygienist Staffing</a></p>
+            <p><a href="assistant-staffing.html"><i class="fas fa-user-nurse"></i> Dental Assistant Staffing</a></p>
             <p><a href="https://www.stafstar.com/agency/practizone/job-posting" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-alt"></i> Guest Posting</a></p>
             <p><a href="https://www.stafstar.com/agency/practizone/login/employer" target="_blank" rel="noopener noreferrer"><i class="fas fa-sign-in-alt"></i> Employer</a></p>
             <p><a href="https://www.stafstar.com/agency/practizone/login/professional" target="_blank" rel="noopener noreferrer"><i class="fas fa-user-check"></i> Professional</a></p>
