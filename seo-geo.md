@@ -51,3 +51,25 @@
   - Added dropdown navigation under "Staffing" and footer sub-links under "Staffing & Services" across all site pages pointing to the new role pages.
   - Updated sitemap.xml with the new role landing page URLs (/hygienist-staffing.html and /assistant-staffing.html) and set lastmod to 2026-11-05.
 
+## [2026-11-06] - Cybersecurity Partner Link Integration & Weekly Verification
+- Integrated Cybersecurity Training Partner Block on /consulting-services.html:
+  - Added a dedicated, high-conversion partner card: "Dental Team Cybersecurity & Privacy Awareness".
+  - Integrated copy emphasizing team protection and dental cybersecurity awareness: "Protect Your Practice. Train Your Team. Explore cybersecurity training programs and available savings tailored for dental healthcare environments."
+  - Implemented primary outbound CTA button pointing to the referral savings portal (https://www.mylatraining.com/recommended?ref=6cff00a652fe118b) with target="_blank", rel="noopener sponsored", and data-analytics="cybersecurity_savings_practizone".
+  - Added secondary curriculum text link (https://www.mylatraining.com/programs) with target="_blank", rel="noopener sponsored", and data-analytics="cybersecurity_programs_practizone".
+  - Displayed transparent collaboration disclosure note: "Partner training provided in collaboration with MylaTraining."
+  - Added "Cybersecurity Training" partner anchor link under "Staffing & Services" in the footer of /consulting-services.html.
+- Configured Custom Outbound Analytics Event Listener in assets/js/main.js:
+  - Attached GA4 event listener on all MylaTraining outbound anchor elements (`a[href*="mylatraining.com"]`).
+  - Dispatches `partner_outbound_click` custom event with parameters `event_category: 'Partner'`, `partner_name: 'MylaTraining'`, `source_site: 'PractiZone'`, and `link_url: this.href`.
+  - Verified non-blocking external tab navigation ensuring smooth user experience.
+- End-of-Week Route & Link Integrity Verification:
+  - Executed automated curl HTTP status audit on all updated core routes:
+    - https://practizone.ca/ (HTTP 200 OK)
+    - https://practizone.ca/consulting-services.html (HTTP 200 OK)
+    - https://practizone.ca/contact.html (HTTP 200 OK)
+    - https://practizone.ca/hygienist-staffing.html (HTTP 200 OK validated in local workspace; live host deployment pending pull)
+    - https://practizone.ca/assistant-staffing.html (HTTP 200 OK validated in local workspace; live host deployment pending pull)
+  - Audited and enforced canonical link tags across 100% of website pages (all 13 HTML documents self-referencing https://practizone.ca/...).
+  - Audited external links site-wide to ensure mandatory security attributes (`rel="noopener"` / `rel="noopener noreferrer"` / `rel="noopener sponsored"`).
+  - Confirmed sitemap.xml freshness with updated `lastmod` (2026-11-06) for consulting-services.html covering all 13 canonical URLs.

@@ -171,6 +171,20 @@ document.addEventListener('click', (event) => {
   trackOutboundReferral(targetUrl, linkText, placement);
 });
 
+// Outbound partner click tracking for MylaTraining external links
+document.querySelectorAll('a[href*="mylatraining.com"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    if (typeof gtag === 'function') {
+      gtag('event', 'partner_outbound_click', {
+        'event_category': 'Partner',
+        'partner_name': 'MylaTraining',
+        'source_site': 'PractiZone',
+        'link_url': this.href
+      });
+    }
+  });
+});
+
 // Contact Form Activation & Lead Attribution Tracking
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.querySelector("form.form-grid");
