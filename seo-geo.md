@@ -73,3 +73,42 @@
   - Audited and enforced canonical link tags across 100% of website pages (all 13 HTML documents self-referencing https://practizone.ca/...).
   - Audited external links site-wide to ensure mandatory security attributes (`rel="noopener"` / `rel="noopener noreferrer"` / `rel="noopener sponsored"`).
   - Confirmed sitemap.xml freshness with updated `lastmod` (2026-11-06) for consulting-services.html covering all 13 canonical URLs.
+
+## [2026-11-07] - Weekly Indexing Audit, Sitemap Validation & Technical Health
+- Sitemap & Canonical Route Synchronization:
+  - Updated all 13 canonical URLs in `sitemap.xml` with synchronized `<lastmod>` timestamps set to `2026-11-07`:
+    - `https://practizone.ca/` (Priority: 1.0, Changefreq: weekly)
+    - `https://practizone.ca/staffing.html` (Priority: 0.9, Changefreq: weekly)
+    - `https://practizone.ca/hygienist-staffing.html` (Priority: 0.9, Changefreq: weekly)
+    - `https://practizone.ca/assistant-staffing.html` (Priority: 0.9, Changefreq: weekly)
+    - `https://practizone.ca/consulting-services.html` (Priority: 0.8, Changefreq: monthly)
+    - `https://practizone.ca/pricing.html` (Priority: 0.8, Changefreq: monthly)
+    - `https://practizone.ca/testimonials.html` (Priority: 0.7, Changefreq: monthly)
+    - `https://practizone.ca/about.html` (Priority: 0.7, Changefreq: monthly)
+    - `https://practizone.ca/contact.html` (Priority: 0.8, Changefreq: monthly)
+    - `https://practizone.ca/portal.html` (Priority: 0.8, Changefreq: monthly)
+    - `https://practizone.ca/terms.html` (Priority: 0.3, Changefreq: yearly)
+    - `https://practizone.ca/privacy.html` (Priority: 0.3, Changefreq: yearly)
+    - `https://practizone.ca/terms-conditions.html` (Priority: 0.3, Changefreq: yearly)
+  - Executed automated curl HTTP status audit across all 13 live and staged routes:
+    - 11/13 core live routes return direct HTTP 200 OK without redirect loops.
+    - Verified that new role routes (`/hygienist-staffing.html` and `/assistant-staffing.html`) are 100% complete and validated locally (HTTP 200 OK), awaiting remote server Git pull deployment.
+- Domain & Canonical Redirection Integrity:
+  - Verified strict single-hop 301 permanent redirects enforcing the non-www apex domain:
+    - `http://practizone.ca/` -> `https://practizone.ca/` (HTTP/1.1 301 Moved Permanently)
+    - `https://www.practizone.ca/` -> `https://practizone.ca/` (HTTP/2 301 Moved Permanently)
+    - `https://practizone.ca/index.html` -> `https://practizone.ca/` (HTTP/2 301 Moved Permanently)
+  - Verified robots.txt policies grant unrestricted crawl permissions (`User-agent: *`, `Allow: /`) for search engine and AI crawlers (Googlebot, OAI-SearchBot, GPTBot, ClaudeBot, PerplexityBot).
+- Form Validation, Spam Protection & Lead Attribution Audit:
+  - Audited `/contact.html` form mechanics:
+    - Confirmed honeypot anti-spam input (`_hp_check`) is concealed (`display:none !important;`, `tabindex="-1"`, `autocomplete="off"`) and blocks bot submissions without degrading real user UX.
+    - Confirmed automated extraction of hidden attribution parameters (`utm_source`, `utm_medium`, `utm_campaign`, `referring_site`, `submission_date`) upon query detection.
+    - Validated mandatory PIPEDA privacy consent checkbox prior to submission.
+  - Checked outbound partner & referral link integrity:
+    - Confirmed all PractiOne buttons on `/consulting-services.html` carry valid UTM parameters (`utm_source=practizone&utm_medium=referral&...`) and secure `target="_blank" rel="noopener"` attributes with GA4 / dataLayer event dispatch.
+    - Confirmed MylaTraining partner training links carry `rel="noopener sponsored"`, `data-analytics` tags, and fire custom GA4 `partner_outbound_click` events.
+- Core Web Vitals & Asset Performance Check:
+  - Verified 100% of hero graphic assets are delivered as modern WebP images (<200 KB, ranging from 22 KB to 97 KB) with explicit `width` and `height` dimensions (1254x1254) to eliminate Cumulative Layout Shift (CLS).
+  - Confirmed active `<link rel="preload" as="image" ... type="image/webp">` tags in `<head>` of `index.html`, `staffing.html`, `hygienist-staffing.html`, `assistant-staffing.html`, and `consulting-services.html` for maximum Largest Contentful Paint (LCP) performance.
+- Milestone Status:
+  - Completed Week 2 technical, indexing, and route health audit milestone successfully.
