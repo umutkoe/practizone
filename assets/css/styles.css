@@ -202,6 +202,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   padding: 0.72rem 1.15rem;
   border-radius: var(--radius-sm);
   font-weight: 700;
@@ -261,6 +262,7 @@ a {
 .page-hero {
   padding: 4.5rem 0 3rem;
   position: relative;
+  overflow-x: clip;
 }
 
 .page-hero-grid {

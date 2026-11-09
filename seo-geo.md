@@ -112,3 +112,31 @@
   - Confirmed active `<link rel="preload" as="image" ... type="image/webp">` tags in `<head>` of `index.html`, `staffing.html`, `hygienist-staffing.html`, `assistant-staffing.html`, and `consulting-services.html` for maximum Largest Contentful Paint (LCP) performance.
 - Milestone Status:
   - Completed Week 2 technical, indexing, and route health audit milestone successfully.
+
+## [2026-11-09] - Dental Receptionist Recruitment Page & GEO Optimization
+- Deployment of Dedicated Role Landing Page (`/receptionist-recruitment.html`):
+  - Created high-intent role page targeting Ontario dental front-desk administrators, office managers, and dental receptionist hiring:
+    - Primary H1: "Dental Receptionist & Front-Desk Staffing in Ontario".
+    - Meta Title: "Dental Receptionist & Office Admin Recruitment Ontario | PractiZone".
+    - Meta Description: "Hire pre-screened, experienced dental receptionists and front-desk administrators across Ontario. Fast placement for temporary coverage and permanent positions."
+    - Self-referencing canonical URL: `<link rel="canonical" href="https://practizone.ca/receptionist-recruitment.html" />`.
+    - Aligned for target search phrases: "dental receptionist recruitment Ontario", "hire dental front desk receptionist", "dental office administrator staffing", and "dental receptionist agency Toronto Ontario".
+  - Featured Core Deliverables & Candidate Qualifications:
+    - Software Proficiency: Verified hands-on experience with leading Ontario practice management software (Dentrix, Tracker, Cleardent, AbelDent).
+    - Billing & EDI Navigation: Thorough knowledge of ODA fee guides, insurance pre-determinations, and CDAnet electronic claim submissions.
+    - Schedule Optimization: Patient recall coordination, cancellation filling, and operatory schedule flow management.
+    - Flexible Placement: Same-day emergency temporary coverage, locum coverage, and direct-hire permanent placement.
+  - Deployed Dual Action Routing & Cross-Referral Bridge:
+    - Primary CTA (Clinics/Employers): "Request a Dental Receptionist" pointing to `https://www.stafstar.com/agency/practizone/job-posting` (`target="_blank" rel="noopener"`).
+    - Secondary CTA (Job Seekers): "Apply as Dental Receptionist" pointing to `/portal.html`.
+    - Cross-Referral Bridge: "Need Front-Desk Team Training?" linking to the PractiOne consulting bridge at `/consulting-services.html`.
+- Integration of High-Intent GEO Direct-Answer Block:
+  - Embedded an AI-quotable, 42-word concise definition block within the above-the-fold hero section for search engine AI overviews (Google SGE, Perplexity, GPTBot):
+    > "PractiZone provides temporary and permanent dental receptionist recruitment across Ontario. We connect clinics with vetted front-desk administrators skilled in Canadian dental billing, insurance claims, recall management, and leading practice management software including Tracker, Dentrix, and Cleardent."
+- Deployment of Schema.org Structured Data (JSON-LD):
+  - Implemented `EmploymentAgency` schema (`name: "PractiZone Dental Staffing"`, `serviceType: "Dental Receptionist Staffing"`, `areaServed: "Ontario, Canada"`, with contact points, address, and logo).
+  - Implemented `BreadcrumbList` schema reflecting site hierarchy: Home (`https://practizone.ca/`) > Staffing (`https://practizone.ca/staffing.html`) > Dental Receptionist Recruitment (`https://practizone.ca/receptionist-recruitment.html`).
+- Site Architecture, Navigation & Sitemap Synchronization:
+  - Updated the main navigation dropdown under "Staffing" across all 14 site pages to include "Dental Receptionist Recruitment" (`/receptionist-recruitment.html`).
+  - Added "Dental Receptionist Recruitment" link with FontAwesome icon (`<i class="fas fa-headset"></i>`) under "Staffing & Services" in the footer across all 14 site pages.
+  - Synchronized `sitemap.xml`: Added `https://practizone.ca/receptionist-recruitment.html` with lastmod `2026-11-09` and priority `0.8`.
