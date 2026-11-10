@@ -140,3 +140,31 @@
   - Updated the main navigation dropdown under "Staffing" across all 14 site pages to include "Dental Receptionist Recruitment" (`/receptionist-recruitment.html`).
   - Added "Dental Receptionist Recruitment" link with FontAwesome icon (`<i class="fas fa-headset"></i>`) under "Staffing & Services" in the footer across all 14 site pages.
   - Synchronized `sitemap.xml`: Added `https://practizone.ca/receptionist-recruitment.html` with lastmod `2026-11-09` and priority `0.8`.
+
+## [2026-11-10] - Temporary Dental Staffing & Emergency Shifts Page Launch
+- Deployment of Dedicated Role Landing Page (`/temporary-dental-staffing.html`):
+  - Created high-converting commercial landing page targeting Ontario emergency and short-term dental temp coverage:
+    - Primary H1: "Emergency & Temporary Dental Staffing Solutions in Ontario".
+    - Meta Title: "Temporary Dental Staffing Ontario | Emergency Temp Shifts | PractiZone".
+    - Meta Description: "Need same-day or emergency dental temp coverage in Ontario? PractiZone provides fast placement of pre-screened Registered Dental Hygienists and Dental Assistants."
+    - Self-referencing canonical URL: `<link rel="canonical" href="https://practizone.ca/temporary-dental-staffing.html">`.
+    - Aligned for target search phrases: "temporary dental staffing Ontario", "emergency dental temp agency", "last minute dental hygienist Ontario", "temp dental assistant Toronto", and "locum dental staff".
+  - Featured Core Value Propositions & Shift Types:
+    - Emergency Same-Day Coverage: Rapid response dispatch for unexpected morning call-outs and sick leaves.
+    - Planned Short-Term Coverage: Vacation, maternity, medical leave, or peak seasonal hygiene backfills.
+    - Verified Clinical Credentials: All temporary professionals hold active college registration (CDHO/RCDSO/HARP), verified liability insurance, and validated clinical experience.
+    - Frictionless Billing: Transparent daily/hourly billing with zero hidden administrative placement charges for temporary shifts.
+  - Deployed Dual Conversion CTAs & Cross-Referral Bridge:
+    - Primary CTA (Practice Owners/Managers): "Request Emergency Temp Coverage" pointing to `https://www.stafstar.com/agency/practizone/job-posting` (`target="_blank" rel="noopener"`).
+    - Secondary CTA (Dental Temp Candidates): "Pick Up Temp Shifts" pointing to `/portal.html`.
+    - Reciprocal Cross-Referral: "Need Clinical SOPs or Team Training?" linking to the PractiOne consulting bridge at `/consulting-services.html`.
+- Integration of High-Intent GEO Direct-Answer Block:
+  - Embedded an AI-quotable, 44-word direct answer block within the above-the-fold hero section for search engine AI overviews (Google SGE, Perplexity, GPTBot):
+    > "PractiZone delivers fast, reliable temporary dental staffing across Ontario to resolve last-minute sick calls, maternity leaves, and peak patient volume. We dispatch verified Registered Dental Hygienists (RDH) and Certified Dental Assistants (CDA) with rapid confirmation to keep your operatory chairs running without lost production."
+- Deployment of Schema.org Structured Data (JSON-LD):
+  - Implemented `EmploymentAgency` schema (`name: "PractiZone Dental Staffing"`, `serviceType: "Temporary Dental Staffing"`, `areaServed: "Ontario, Canada"`, with telephone, email, and address).
+  - Implemented `BreadcrumbList` schema reflecting site hierarchy: Home (`https://practizone.ca/`) > Staffing (`https://practizone.ca/staffing.html`) > Temporary Dental Staffing (`https://practizone.ca/temporary-dental-staffing.html`).
+- Site Architecture, Navigation & Sitemap Synchronization:
+  - Updated the main navigation dropdown under "Staffing" across all 15 site pages to include "Temporary Dental Staffing" (`/temporary-dental-staffing.html`).
+  - Added "Temporary Dental Staffing" link with FontAwesome icon (`<i class="fas fa-clock"></i>`) under "Staffing & Services" in the footer across all 15 site pages.
+  - Synchronized `sitemap.xml`: Added `https://practizone.ca/temporary-dental-staffing.html` with lastmod `2026-11-10` and priority `0.8`.
