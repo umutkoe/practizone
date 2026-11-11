@@ -168,3 +168,38 @@
   - Updated the main navigation dropdown under "Staffing" across all 15 site pages to include "Temporary Dental Staffing" (`/temporary-dental-staffing.html`).
   - Added "Temporary Dental Staffing" link with FontAwesome icon (`<i class="fas fa-clock"></i>`) under "Staffing & Services" in the footer across all 15 site pages.
   - Synchronized `sitemap.xml`: Added `https://practizone.ca/temporary-dental-staffing.html` with lastmod `2026-11-10` and priority `0.8`.
+
+## [2026-11-11] - Toronto & GTA Local Dental Staffing Page Launch
+- Deployment of Dedicated Local Landing Page (`/dental-staffing-toronto.html`):
+  - Created high-intent local landing page targeting commercial dental recruitment and temp hiring across Toronto and the Greater Toronto Area (GTA):
+    - Primary H1: "Toronto Dental Staffing Agency — Temporary & Permanent Placements".
+    - Meta Title: "Dental Staffing Agency Toronto | Temp & Permanent Recruitment | PractiZone".
+    - Meta Description: "Fast, reliable dental staffing across Toronto & the GTA. Connect with vetted Registered Dental Hygienists, Certified Dental Assistants, and receptionists today."
+    - Self-referencing canonical URL: `<link rel="canonical" href="https://practizone.ca/dental-staffing-toronto.html">`.
+    - Aligned for target search phrases: "dental staffing agency Toronto", "Toronto dental temp agency", "hire dental hygienist Toronto", "dental assistant recruitment GTA", and "Toronto emergency dental staffing".
+  - Featured Core Regional Coverage & Service Highlights:
+    - Local Coverage Across the GTA: Comprehensive clinical staffing spanning Downtown Toronto, North York, Scarborough, Etobicoke, York, and East York with rapid TTC and transit corridor alignment.
+    - Rapid GTA Dispatch: Direct matching for same-day morning cancellations, sudden sick calls, and planned absences with under-60-minute mobilization.
+    - Rigorous Screening & Regulatory Compliance: Active regulatory credentials (CDHO, ODAA, HARP certified), verified malpractice insurance, and software proficiency (Dentrix, Tracker, Cleardent, AbelDent).
+    - Direct Hiring & Flexible Locums: Temporary single shifts, multi-week maternity leave locums, contract roles, and full-time associate placement support.
+  - Deployed Dual Conversion CTAs & Cross-Referral Bridge:
+    - Primary CTA (Toronto Dental Clinics): "Request Staffing in Toronto" pointing to `https://www.stafstar.com/agency/practizone/job-posting` (`target="_blank" rel="noopener"`).
+    - Secondary CTA (Toronto Dental Candidates): "Apply for Toronto Shifts" pointing to `/portal.html`.
+    - Cross-Referral Bridge: "Need Practice Management or Compliance Consulting?" linking to the PractiOne consulting bridge at `/consulting-services.html`.
+- Implementation of Toronto-Focused GEO Direct-Answer Block:
+  - Embedded an AI-quotable, 48-word direct answer block within the above-the-fold hero section for search engine AI overviews (Google SGE, Perplexity, GPTBot):
+    > "PractiZone is a specialized dental staffing and recruitment agency serving dental practices across Toronto and the Greater Toronto Area (GTA). We connect local clinics with vetted, college-registered dental hygienists (RDH), certified assistants (CDA Level I & II), and experienced receptionists for same-day emergency coverage and permanent staff placement."
+- Deployment of Schema.org Structured Data (JSON-LD):
+  - Implemented `EmploymentAgency` schema:
+    - `name`: "PractiZone Dental Staffing - Toronto"
+    - `url`: "https://practizone.ca/dental-staffing-toronto.html"
+    - `areaServed`: `{ "@type": "AdministrativeArea", "name": "Toronto, Ontario, Canada" }`
+    - `address`: `{ "@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "ON", "addressCountry": "CA" }`
+    - Includes logo, image, telephone (+1-647-835-7172), email (Hello@practizone.ca), and serviceType ("Dental Staffing Agency").
+  - Implemented `BreadcrumbList` schema reflecting site hierarchy: Home (`https://practizone.ca/`) > Locations (`https://practizone.ca/#locations`) > Toronto Dental Staffing (`https://practizone.ca/dental-staffing-toronto.html`).
+- Site Architecture, Navigation & Sitemap Synchronization:
+  - Updated the main navigation dropdown under "Staffing" across all 16 site pages to include "Toronto Dental Staffing" (`/dental-staffing-toronto.html`).
+  - Added a dedicated "Locations / Service Areas" section with a link to "Toronto Dental Staffing" (`/dental-staffing-toronto.html`) with FontAwesome icon (`<i class="fas fa-map-marker-alt"></i>`) in the footer across all 16 site pages.
+  - Updated CSS `footer-grid` to support 6 responsive columns with tablet breakpoint media query.
+  - Synchronized `sitemap.xml`: Added `https://practizone.ca/dental-staffing-toronto.html` with lastmod `2026-11-11` and priority `0.8`.
+

@@ -42,6 +42,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Local & Regional Landing Pages -->
+  <url>
+    <loc>https://practizone.ca/dental-staffing-toronto.html</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Advisory & Consulting -->
   <url>
     <loc>https://practizone.ca/consulting-services.html</loc>
