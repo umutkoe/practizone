@@ -704,6 +704,27 @@ textarea {
   border-color: #fecaca;
 }
 
+.candidate-notice {
+  margin-top: 0.65rem;
+  padding: 0.85rem 1rem;
+  background-color: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.candidate-notice a {
+  color: var(--brand-700);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.candidate-notice a:hover {
+  color: var(--brand-900);
+}
+
 .video-grid {
   display: grid;
   gap: 1rem;

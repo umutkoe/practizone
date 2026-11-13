@@ -185,12 +185,152 @@ document.querySelectorAll('a[href*="mylatraining.com"]').forEach(link => {
   });
 });
 
+/**
+ * Builds a structured JSON lead payload ready for LeadsMagnet CRM / webhook ingestion.
+ * Serializes standard form inputs, categorization, and full UTM / attribution metadata.
+ * @param {HTMLFormElement} formElement
+ * @returns {Object} Structured CRM payload
+ */
+function buildCrmLeadPayload(formElement) {
+  if (!formElement) return null;
+  const formData = new FormData(formElement);
+  const inquiryType = (formData.get("inquiry_type") || "").toString().trim();
+
+  let leadCategory = "general";
+  if (inquiryType.toLowerCase().startsWith("employer")) {
+    leadCategory = "employer_staffing_lead";
+  } else if (inquiryType.toLowerCase().includes("candidate")) {
+    leadCategory = "candidate_registration";
+  } else if (inquiryType.toLowerCase().includes("consulting")) {
+    leadCategory = "consulting_inquiry";
+  }
+
+  const payload = {
+    source_site: "PractiZone",
+    lead_category: leadCategory,
+    inquiry_type: inquiryType || "General Inquiry",
+    contact_details: {
+      name: (formData.get("name") || "").toString().trim(),
+      practice_name: (formData.get("practice_name") || "").toString().trim(),
+      email: (formData.get("email") || "").toString().trim(),
+      phone: (formData.get("phone") || "").toString().trim(),
+      subject: (formData.get("subject") || "").toString().trim(),
+      message: (formData.get("message") || "").toString().trim(),
+      privacy_consent: formData.get("privacy_consent") === "on" || formData.get("privacy_consent") === "true"
+    },
+    attribution: {
+      utm_source: (formData.get("utm_source") || "direct").toString(),
+      utm_medium: (formData.get("utm_medium") || "none").toString(),
+      utm_campaign: (formData.get("utm_campaign") || "").toString(),
+      referring_site: (formData.get("referring_site") || (typeof document !== "undefined" ? document.referrer || "direct" : "direct")).toString(),
+      landing_page: (formData.get("landing_page") || (typeof window !== "undefined" ? window.location.href : "")).toString(),
+      submission_date: (formData.get("submission_date") || new Date().toISOString()).toString()
+    },
+    crm_integration: {
+      target: "LeadsMagnet",
+      ready_for_dispatch: true,
+      schema_version: "1.0",
+      created_at: new Date().toISOString()
+    }
+  };
+
+  return payload;
+}
+
+if (typeof window !== "undefined") {
+  window.buildCrmLeadPayload = buildCrmLeadPayload;
+}
+
+// Distinct GA4 Portal Tracking for Employer vs. Candidate Clicks
+document.addEventListener("click", (event) => {
+  const portalLink = event.target.closest('a[href*="portal.html"], a[href*="stafstar.com"]');
+  if (!portalLink) return;
+
+  const href = portalLink.getAttribute("href") || "";
+  const linkText = (portalLink.textContent || "").trim().toLowerCase();
+
+  let direction = null;
+
+  if (href.includes("login/professional")) {
+    direction = "candidate";
+  } else if (href.includes("login/employer") || href.includes("job-posting")) {
+    direction = "employer";
+  } else {
+    // Discriminate based on button text / context
+    const candidateKeywords = [
+      "apply",
+      "shift",
+      "candidate",
+      "professional",
+      "register",
+      "pick up",
+      "job seeker",
+      "schedule",
+      "log in as a professional"
+    ];
+    const employerKeywords = [
+      "employer",
+      "request staffing",
+      "find a candidate",
+      "hire",
+      "post",
+      "clinic",
+      "manage staffing",
+      "manage"
+    ];
+
+    if (candidateKeywords.some((kw) => linkText.includes(kw))) {
+      direction = "candidate";
+    } else if (employerKeywords.some((kw) => linkText.includes(kw))) {
+      direction = "employer";
+    }
+  }
+
+  const cleanText = (portalLink.textContent || "").trim().replace(/\s+/g, " ");
+
+  if (direction === "candidate") {
+    if (typeof gtag === "function") {
+      gtag("event", "candidate_portal_click", {
+        event_category: "Candidate Portal",
+        destination: href,
+        link_text: cleanText,
+        source_site: "PractiZone"
+      });
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "candidate_portal_click",
+      event_category: "Candidate Portal",
+      destination: href,
+      link_text: cleanText
+    });
+    console.info("[Analytics] candidate_portal_click dispatched:", cleanText, href);
+  } else if (direction === "employer") {
+    if (typeof gtag === "function") {
+      gtag("event", "employer_portal_click", {
+        event_category: "Employer Portal",
+        destination: href,
+        link_text: cleanText,
+        source_site: "PractiZone"
+      });
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "employer_portal_click",
+      event_category: "Employer Portal",
+      destination: href,
+      link_text: cleanText
+    });
+    console.info("[Analytics] employer_portal_click dispatched:", cleanText, href);
+  }
+});
+
 // Contact Form Activation & Lead Attribution Tracking
 document.addEventListener("DOMContentLoaded", () => {
   const contactForm = document.querySelector("form.form-grid");
   if (!contactForm) return;
 
-  // 1. Lead Attribution: Extract UTM parameters and referring URL
+  // 1. Lead Attribution: Extract UTM parameters, landing page, and referring URL
   const urlParams = new URLSearchParams(window.location.search);
   const utmSource = urlParams.get("utm_source");
   const utmMedium = urlParams.get("utm_medium");
@@ -200,6 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const utmMediumInput = document.getElementById("utm_medium");
   const utmCampaignInput = document.getElementById("utm_campaign");
   const referringSiteInput = document.getElementById("referring_site");
+  const landingPageInput = document.getElementById("landing_page");
   const submissionDateInput = document.getElementById("submission_date");
 
   if (utmSourceInput && utmSource) {
@@ -213,6 +354,59 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if (referringSiteInput) {
     referringSiteInput.value = document.referrer || "direct";
+  }
+  if (landingPageInput) {
+    landingPageInput.value = window.location.href;
+  }
+
+  // Inquiry type, dynamic subject updater, and candidate inline notice
+  const inquiryTypeSelect = document.getElementById("inquiry_type");
+  const candidateNotice = document.getElementById("candidate-portal-notice");
+  const practiceNameInput = document.getElementById("practice_name");
+  const nameInput = document.getElementById("name");
+  const subjectHiddenInput = document.getElementById("_subject");
+
+  const updateDynamicSubject = () => {
+    if (!subjectHiddenInput) return;
+    const inquiryType = inquiryTypeSelect ? inquiryTypeSelect.value.trim() : "";
+    const practiceName = practiceNameInput ? practiceNameInput.value.trim() : "";
+    const contactName = nameInput ? nameInput.value.trim() : "";
+    const identifier = practiceName || contactName || "New Lead";
+
+    if (inquiryType.startsWith("Employer: Temporary Staffing")) {
+      subjectHiddenInput.value = `[PractiZone Lead] Employer Staffing Request - ${identifier}`;
+    } else if (inquiryType.startsWith("Employer: Permanent Recruitment")) {
+      subjectHiddenInput.value = `[PractiZone Lead] Employer Permanent Recruitment - ${identifier}`;
+    } else if (inquiryType.startsWith("Dental Professional: Candidate Registration")) {
+      subjectHiddenInput.value = `[PractiZone Candidate] Registration - ${identifier}`;
+    } else if (inquiryType.startsWith("Practice Consulting")) {
+      subjectHiddenInput.value = `[PractiZone Consulting] Practice Assessment - ${identifier}`;
+    } else if (inquiryType) {
+      subjectHiddenInput.value = `[PractiZone Lead] ${inquiryType} - ${identifier}`;
+    } else {
+      subjectHiddenInput.value = `[PractiZone Lead] General Inquiry - ${identifier}`;
+    }
+  };
+
+  if (inquiryTypeSelect) {
+    inquiryTypeSelect.addEventListener("change", () => {
+      const selected = inquiryTypeSelect.value;
+      if (candidateNotice) {
+        if (selected === "Dental Professional: Candidate Registration") {
+          candidateNotice.style.display = "block";
+        } else {
+          candidateNotice.style.display = "none";
+        }
+      }
+      updateDynamicSubject();
+    });
+  }
+
+  if (practiceNameInput) {
+    practiceNameInput.addEventListener("input", updateDynamicSubject);
+  }
+  if (nameInput) {
+    nameInput.addEventListener("input", updateDynamicSubject);
   }
 
   // Helper for displaying form status alerts
@@ -235,7 +429,7 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.style.display = "none";
   }
 
-  // 2. Submit Handler: Honeypot check, timestamp population, and AJAX submission
+  // 2. Submit Handler: Honeypot check, timestamp population, GA4 conversion, and AJAX submission
   contactForm.addEventListener("submit", async (e) => {
     // Honeypot spam verification
     const honeypot = contactForm.querySelector('input[name="_hp_check"]');
@@ -249,6 +443,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (submissionDateInput) {
       submissionDateInput.value = new Date().toISOString();
     }
+    if (landingPageInput && !landingPageInput.value) {
+      landingPageInput.value = window.location.href;
+    }
+
+    // Ensure subject line is fresh
+    updateDynamicSubject();
 
     // Client-side privacy compliance consent check
     const consentCheckbox = document.getElementById("privacy_consent");
@@ -260,6 +460,49 @@ document.addEventListener("DOMContentLoaded", () => {
       );
       return;
     }
+
+    // Build structured CRM lead payload ready for LeadsMagnet integration
+    const crmPayload = buildCrmLeadPayload(contactForm);
+    console.info("[LeadsMagnet CRM Payload Prepared]:", crmPayload);
+    window.dispatchEvent(new CustomEvent("crm_lead_payload_ready", { detail: crmPayload }));
+
+    // Distinct GA4 Conversion Tracking per Section 2 & 3 Client Brief
+    const selectedType = inquiryTypeSelect ? inquiryTypeSelect.value.trim() : "";
+    const isEmployerLead = selectedType.toLowerCase().startsWith("employer");
+
+    if (typeof gtag === "function") {
+      if (isEmployerLead) {
+        // Strictly employer sales lead conversion event
+        gtag('event', 'generate_lead', {
+          'event_category': 'Employer Lead',
+          'inquiry_type': selectedType,
+          'source_site': 'PractiZone'
+        });
+      } else if (selectedType.toLowerCase().includes("candidate")) {
+        // Candidate inquiry event (separate from employer sales leads)
+        gtag('event', 'candidate_registration_form', {
+          'event_category': 'Candidate Registration',
+          'inquiry_type': selectedType,
+          'source_site': 'PractiZone'
+        });
+      } else {
+        gtag('event', 'contact_inquiry', {
+          'event_category': 'General Inquiry',
+          'inquiry_type': selectedType,
+          'source_site': 'PractiZone'
+        });
+      }
+    }
+
+    // Push to dataLayer for Google Tag Manager
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: isEmployerLead ? 'generate_lead' : 'contact_form_submission',
+      event_category: isEmployerLead ? 'Employer Lead' : 'General/Candidate Inquiry',
+      inquiry_type: selectedType,
+      source_site: 'PractiZone',
+      crm_ready: true
+    });
 
     // AJAX Form Submission
     e.preventDefault();

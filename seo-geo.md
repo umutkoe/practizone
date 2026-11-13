@@ -238,3 +238,40 @@
   - Updated the main navigation dropdown under "Staffing" across all 17 site pages to include "Mississauga Dental Staffing" (`/dental-staffing-mississauga.html`).
   - Added a dedicated footer link for "Mississauga Dental Staffing" (`/dental-staffing-mississauga.html`) with FontAwesome icon (`<i class="fas fa-map-marker-alt"></i>`) under "Locations / Service Areas" in the footer across all 17 site pages alongside Toronto.
   - Synchronized `sitemap.xml`: Added `https://practizone.ca/dental-staffing-mississauga.html` with lastmod `2026-11-12` and priority `0.8`.
+
+## [2026-11-13] - Lead Attribution Standardization, CRM Payload Preparation & Internal Link Audit
+- Lead Attribution & Form Categorization Standardization (/contact.html):
+  - Standardized inquiry categorization to strictly separate employer staffing leads from candidate registration flows per Sections 2 & 3 of the client brief:
+    - Added `<select id="inquiry_type" name="inquiry_type">` with distinct options:
+      - "Employer: Temporary Staffing Request"
+      - "Employer: Permanent Recruitment Request"
+      - "Dental Professional: Candidate Registration"
+      - "Practice Consulting / Compliance Inquiry"
+    - Added dedicated clinic/practice identifier field (`practice_name`) for accurate clinic attribution and CRM contact indexing.
+    - Added dynamic inline candidate alert box (`#candidate-portal-notice`): when a user selects "Dental Professional: Candidate Registration", an informational notice guides them directly to the self-serve candidate portal (`/portal.html`) for faster profile approval and direct shift bookings, while still permitting form completion without polluting clinic sales lead figures.
+    - Configured dynamic email subject formatting: dynamically updates hidden `_subject` line based on selected inquiry type and practice or contact name (e.g., `[PractiZone Lead] Employer Staffing Request - {Practice Name}`).
+    - Added hidden `landing_page` attribution field capturing the referring or source page alongside `utm_source`, `utm_medium`, `utm_campaign`, `referring_site`, and `submission_date`.
+- LeadsMagnet CRM-Ready Payload Generation (`assets/js/main.js`):
+  - Implemented modular helper function `buildCrmLeadPayload(formElement)` that serializes all form inputs, inquiry categories, and attribution metadata into a structured JSON payload ready for direct LeadsMagnet CRM webhook integration.
+  - Automatically maps lead categorization (`lead_category: "employer_staffing_lead" | "candidate_registration" | "consulting_inquiry"`).
+  - Normalizes contact details, full UTM attribution, and CRM metadata (`target: "LeadsMagnet", ready_for_dispatch: true, schema_version: "1.0"`).
+  - Dispatches custom DOM event `crm_lead_payload_ready` and exposes `window.buildCrmLeadPayload` for headless webhook connectors.
+- Distinct GA4 Conversion & Portal Traffic Tracking:
+  - Enforced strict event separation between employer sales leads and candidate traffic:
+    - Form submissions for employers fire standard GA4 lead event:
+      `gtag('event', 'generate_lead', { 'event_category': 'Employer Lead', 'inquiry_type': selectedType, 'source_site': 'PractiZone' });`
+    - Form submissions for job candidates fire:
+      `gtag('event', 'candidate_registration_form', { 'event_category': 'Candidate Registration', 'inquiry_type': selectedType, 'source_site': 'PractiZone' });`
+    - Form submissions for consulting inquiries fire:
+      `gtag('event', 'contact_inquiry', { 'event_category': 'General Inquiry', 'inquiry_type': selectedType, 'source_site': 'PractiZone' });`
+  - Deployed global delegated listener for candidate vs. employer portal CTAs (`a[href*="portal.html"], a[href*="stafstar.com"]`):
+    - Professional login and candidate registration CTAs dispatch `candidate_portal_click`.
+    - Employer login and job posting CTAs dispatch `employer_portal_click`.
+    - Prevents candidate onboarding actions from artificially inflating clinic sales conversion rates.
+- Internal Link Architecture & Cross-Linking Verification:
+  - Contextually connected regional and role-specific landing pages across Week 3 architecture:
+    - `index.html`: Integrated contextual anchor links in the above-the-fold GEO direct-answer block and quick links pointing cleanly to `/receptionist-recruitment.html`, `/temporary-dental-staffing.html`, `/dental-staffing-toronto.html`, and `/dental-staffing-mississauga.html`.
+    - `staffing.html`: Updated core capability cards with contextual links to `/hygienist-staffing.html`, `/assistant-staffing.html`, `/receptionist-recruitment.html`, and `/temporary-dental-staffing.html`, plus added a dedicated GTA Regional Staffing Hub banner linking directly to Toronto and Mississauga pages.
+    - `/dental-staffing-toronto.html`: Added contextual cross-links to neighboring Peel Region (`/dental-staffing-mississauga.html`) and back to the centralized `/temporary-dental-staffing.html` page within the regional reach cards and FAQ section.
+    - `/dental-staffing-mississauga.html`: Added reciprocal contextual cross-links to Metro Toronto (`/dental-staffing-toronto.html`) and `/temporary-dental-staffing.html` within regional coverage cards and FAQ section.
+    - `/temporary-dental-staffing.html` & `/receptionist-recruitment.html`: Contextually cross-linked to each other and embedded contextual references to Toronto and Mississauga regional staffing hubs.

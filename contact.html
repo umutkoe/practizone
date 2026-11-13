@@ -150,14 +150,34 @@
               <input type="hidden" name="utm_medium" id="utm_medium" value="" />
               <input type="hidden" name="utm_campaign" id="utm_campaign" value="" />
               <input type="hidden" name="referring_site" id="referring_site" value="" />
+              <input type="hidden" name="landing_page" id="landing_page" value="" />
               <input type="hidden" name="submission_date" id="submission_date" value="" />
-              <input type="hidden" name="_subject" value="New Contact Inquiry — PractiZone" />
+              <input type="hidden" name="_subject" id="_subject" value="New Contact Inquiry — PractiZone" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="_next" value="https://practizone.ca/contact.html?submitted=true" />
 
               <div>
-                <label for="name">Name</label>
+                <label for="inquiry_type">Inquiry Type</label>
+                <select id="inquiry_type" name="inquiry_type" required>
+                  <option value="" disabled selected>Select Inquiry Type...</option>
+                  <option value="Employer: Temporary Staffing Request">Employer: Temporary Staffing Request</option>
+                  <option value="Employer: Permanent Recruitment Request">Employer: Permanent Recruitment Request</option>
+                  <option value="Dental Professional: Candidate Registration">Dental Professional: Candidate Registration</option>
+                  <option value="Practice Consulting / Compliance Inquiry">Practice Consulting / Compliance Inquiry</option>
+                </select>
+                <div id="candidate-portal-notice" class="candidate-notice" style="display:none;" role="status">
+                  <i class="fas fa-info-circle"></i> <strong>Looking for immediate shifts or locum opportunities?</strong> You can register directly on our <a href="portal.html">Dental Professional Portal</a> for instant profile activation and direct shift bookings. You may also continue submitting this form.
+                </div>
+              </div>
+
+              <div>
+                <label for="practice_name">Practice / Clinic Name (or Applicant Name)</label>
+                <input id="practice_name" name="practice_name" type="text" placeholder="e.g. Apex Dental Care (or Candidate Name)" />
+              </div>
+
+              <div>
+                <label for="name">Contact Name</label>
                 <input id="name" name="name" type="text" placeholder="Your full name" required />
               </div>
               <div>
@@ -165,12 +185,16 @@
                 <input id="email" name="email" type="email" placeholder="name@clinic.com" required />
               </div>
               <div>
+                <label for="phone">Phone Number (Optional)</label>
+                <input id="phone" name="phone" type="tel" placeholder="+1 (___) ___-____" />
+              </div>
+              <div>
                 <label for="subject">Subject</label>
                 <input id="subject" name="subject" type="text" placeholder="How can we help?" required />
               </div>
               <div>
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell us about your staffing needs" required></textarea>
+                <textarea id="message" name="message" placeholder="Tell us about your staffing needs or questions" required></textarea>
               </div>
 
               <!-- PIPEDA Privacy Compliance Consent -->
