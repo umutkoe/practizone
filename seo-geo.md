@@ -275,3 +275,28 @@
     - `/dental-staffing-toronto.html`: Added contextual cross-links to neighboring Peel Region (`/dental-staffing-mississauga.html`) and back to the centralized `/temporary-dental-staffing.html` page within the regional reach cards and FAQ section.
     - `/dental-staffing-mississauga.html`: Added reciprocal contextual cross-links to Metro Toronto (`/dental-staffing-toronto.html`) and `/temporary-dental-staffing.html` within regional coverage cards and FAQ section.
     - `/temporary-dental-staffing.html` & `/receptionist-recruitment.html`: Contextually cross-linked to each other and embedded contextual references to Toronto and Mississauga regional staffing hubs.
+
+## [2026-11-14] - Week 3 Indexing Audit, Local Schema Validation & Technical Health
+- Sitemap Synchronization & HTTP Route Health Verification:
+  - Synchronized `sitemap.xml` `<lastmod>` timestamps to `2026-11-14` for all Week 3 role and regional landing pages:
+    - `https://practizone.ca/receptionist-recruitment.html` (Priority: 0.8, Changefreq: weekly)
+    - `https://practizone.ca/temporary-dental-staffing.html` (Priority: 0.8, Changefreq: weekly)
+    - `https://practizone.ca/dental-staffing-toronto.html` (Priority: 0.8, Changefreq: weekly)
+    - `https://practizone.ca/dental-staffing-mississauga.html` (Priority: 0.8, Changefreq: weekly)
+  - Executed automated `curl -I` HTTP status checks across all 17 URLs declared in `sitemap.xml`:
+    - Confirmed 17/17 routes return direct `HTTP 200 OK` responses with `0` redirects and no redirect loops.
+  - Confirmed single-hop `301 Moved Permanently` apex domain canonicalization:
+    - `http://practizone.ca/` -> `https://practizone.ca/` (HTTP/1.1 301)
+    - `https://www.practizone.ca/` -> `https://practizone.ca/` (HTTP/2 301)
+    - `https://practizone.ca/index.html` -> `https://practizone.ca/` (HTTP/2 301)
+- Structured Data & Local GEO Audit:
+  - Validated JSON-LD syntax on all four Week 3 landing pages (`/receptionist-recruitment.html`, `/temporary-dental-staffing.html`, `/dental-staffing-toronto.html`, `/dental-staffing-mississauga.html`):
+    - Confirmed `EmploymentAgency` schemas are valid and include accurate `areaServed` properties (`Ontario, Canada`, `Toronto, Ontario, Canada`, and `Mississauga`, `Brampton`, `Peel Region, Ontario, Canada`).
+    - Confirmed `BreadcrumbList` schemas accurately reflect the site navigation hierarchy (`Home > Staffing > ...` for role pages and `Home > Locations > ...` for GTA regional pages).
+  - Verified above-the-fold direct GEO answer blocks are present in the hero section of each page and all `<link rel="canonical">` tags strictly resolve to `https://practizone.ca/...`.
+- Lead Routing Separation, CRM Payload & Internal Link Audit:
+  - Verified `/contact.html` `#inquiry_type` selector strictly separates Employer Staffing Requests (`Employer: Temporary Staffing Request`, `Employer: Permanent Recruitment Request`) from Candidate Registrations (`Dental Professional: Candidate Registration`) and Consulting Inquiries (`Practice Consulting / Compliance Inquiry`), backed by the `#candidate-portal-notice` redirect helper.
+  - Confirmed `buildCrmLeadPayload(formElement)` in `assets/js/main.js` cleanly serializes form fields, `lead_category`, and hidden UTM/attribution parameters (`utm_source`, `utm_medium`, `utm_campaign`, `referring_site`, `landing_page`, `submission_date`) into a LeadsMagnet-ready JSON payload.
+  - Verified all 555 internal links across all 17 HTML files—including cross-links between role pages, GTA location pages, and `/consulting-services.html`—resolve cleanly with `0` broken links.
+- Milestone Status:
+  - Completed Week 3 technical, indexing, local schema, and route health audit milestone successfully.
