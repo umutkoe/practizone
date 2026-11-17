@@ -318,3 +318,25 @@
   - Deployed valid `EmploymentAgency` JSON-LD schema with `areaServed` covering `Brampton`, `Vaughan`, and `York Region, Ontario, Canada`, plus `BreadcrumbList` schema (`Home` > `Locations` > `Brampton & Vaughan Dental Staffing`).
   - Updated the header `Staffing` dropdown and footer `Locations / Service Areas` section across all 18 site HTML pages to include `/dental-staffing-brampton-vaughan.html` (632 internal links checked, 0 broken).
   - Synchronized `sitemap.xml`: Added `https://practizone.ca/dental-staffing-brampton-vaughan.html` with `lastmod` `2026-11-16` and priority `0.8`.
+
+## [2026-11-17] - Ontario Dental Recruitment Hub & Hub-and-Spoke Internal Link Completion
+- Deployment of Province-Wide Ontario Recruitment Hub (`/ontario-dental-recruitment.html`):
+  - Created `/ontario-dental-recruitment.html` targeting province-wide permanent and contract dental recruitment intent (`dental recruitment agency Ontario`, `permanent dental recruitment Ontario`, `hire dental team Ontario`, `dental jobs Ontario`, `Ontario dental staffing agency`):
+    - Title: `Dental Recruitment Agency Ontario | Permanent & Temp Dental Staffing | PractiZone`
+    - Meta Description: `Partner with PractiZone for permanent and temporary dental recruitment across Ontario. Connect with vetted Registered Dental Hygienists, CDAs, and receptionists.`
+    - Self-referencing canonical: `<link rel="canonical" href="https://practizone.ca/ontario-dental-recruitment.html">`
+    - Primary H1: `Ontario Dental Recruitment Agency — Permanent & Temporary Dental Staffing`
+  - Embedded an AI-quotable, 50-word above-the-fold GEO direct-answer block:
+    > "PractiZone is a specialized dental recruitment and staffing agency serving dental practices and oral health professionals across Ontario. We streamline permanent hiring, maternity leave contracts, and same-day temporary coverage by matching clinics with verified Registered Dental Hygienists (RDH), Certified Dental Assistants (CDA Level I & II), and experienced front-desk receptionists."
+  - Configured dual conversion CTAs: `Submit Employer Staffing Request` (`https://www.stafstar.com/agency/practizone/job-posting`, `target="_blank" rel="noopener"`) and `Register as a Dental Candidate` (`/portal.html`).
+- Completion of Hub-and-Spoke Internal Link Architecture:
+  - Connected `/ontario-dental-recruitment.html` as the central province-wide hub uniting all 4 role landing pages (`/hygienist-staffing.html`, `/assistant-staffing.html`, `/receptionist-recruitment.html`, `/temporary-dental-staffing.html`) and all 3 GTA regional landing pages (`/dental-staffing-toronto.html`, `/dental-staffing-mississauga.html`, `/dental-staffing-brampton-vaughan.html`).
+  - Added the reciprocal PractiOne consulting bridge (`Onboarding a New Team? Explore Clinical SOPs & Staff Training via PractiOne` -> `/consulting-services.html`).
+  - Verified reciprocal contextual links back to `/ontario-dental-recruitment.html` within the GTA location pages (`/dental-staffing-toronto.html`, `/dental-staffing-mississauga.html`, `/dental-staffing-brampton-vaughan.html`).
+- Schema.org Structured Data (JSON-LD) Integration:
+  - Deployed `EmploymentAgency` schema (`name`: `PractiZone Dental Staffing & Recruitment`, `url`: `https://practizone.ca/ontario-dental-recruitment.html`, `areaServed`: `{"@type": "AdministrativeArea", "name": "Ontario, Canada"}`).
+  - Deployed `BreadcrumbList` schema (`Home` > `Recruitment` > `Ontario Dental Recruitment`).
+  - Deployed `FAQPage` schema covering 4 Ontario-specific FAQs (permanent vs. temporary staffing workflows, CDHO/ODAA/HARP credential verification, employer job posting steps, and PIPEDA-compliant candidate registration privacy).
+- Navigation Menu & `sitemap.xml` Synchronization:
+  - Added `/ontario-dental-recruitment.html` to the header `Staffing` dropdown and footer `Staffing & Services` links across all 19 site HTML pages.
+  - Synchronized `sitemap.xml` by adding `https://practizone.ca/ontario-dental-recruitment.html` with `<lastmod>2026-11-17</lastmod>`, `<changefreq>weekly</changefreq>`, and `<priority>0.85</priority>`.
