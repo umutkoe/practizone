@@ -14,4 +14,7 @@
   # 3. Canonical Root: Redirect /index.html requests to root (/)
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html(?:\?[^\ ]*)?\ HTTP/ [NC]
   RewriteRule ^index\.html$ https://practizone.ca/ [R=301,L]
+
+  # 4. Redirect legacy consulting-services.html to dental-practice-consulting.html
+  RewriteRule ^consulting-services\.html$ https://practizone.ca/dental-practice-consulting.html [R=301,L]
 </IfModule>

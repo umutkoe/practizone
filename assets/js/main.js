@@ -172,17 +172,47 @@ document.addEventListener('click', (event) => {
 });
 
 // Outbound partner click tracking for MylaTraining external links
-document.querySelectorAll('a[href*="mylatraining.com"]').forEach(link => {
-  link.addEventListener('click', function(e) {
-    if (typeof gtag === 'function') {
-      gtag('event', 'partner_outbound_click', {
-        'event_category': 'Partner',
-        'partner_name': 'MylaTraining',
-        'source_site': 'PractiZone',
-        'link_url': this.href
-      });
-    }
-  });
+document.addEventListener('click', (event) => {
+  const link = event.target.closest('a[href*="mylatraining.com"]');
+  if (!link) return;
+
+  const targetUrl = link.href;
+  const linkText = (link.textContent || '').trim().replace(/\s+/g, ' ');
+  const placement =
+    link.dataset.placement ||
+    (link.closest('.site-footer') ? 'footer' : 'training_page_cta');
+  const pagePath = window.location.pathname || '/';
+
+  const payload = {
+    event: 'partner_outbound_click',
+    event_category: 'Partner',
+    partner_name: 'MylaTraining',
+    source_site: 'PractiZone',
+    page_path: pagePath,
+    placement: placement,
+    link_text: linkText,
+    link_url: targetUrl,
+    outbound: true
+  };
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push(payload);
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'partner_outbound_click', {
+      event_category: 'Partner',
+      partner_name: 'MylaTraining',
+      source_site: 'PractiZone',
+      page_path: pagePath,
+      placement: placement,
+      link_text: linkText,
+      link_url: targetUrl,
+      outbound: true,
+      transport_type: 'beacon'
+    });
+  }
+
+  console.info('[Analytics] partner_outbound_click dispatched:', payload);
 });
 
 /**

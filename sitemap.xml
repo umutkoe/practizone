@@ -68,10 +68,16 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Advisory & Consulting -->
+  <!-- Advisory, Consulting & Professional Development -->
   <url>
-    <loc>https://practizone.ca/consulting-services.html</loc>
-    <lastmod>2026-11-07</lastmod>
+    <loc>https://practizone.ca/dental-practice-consulting.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://practizone.ca/professional-development-training.html</loc>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
