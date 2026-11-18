@@ -340,3 +340,20 @@
 - Navigation Menu & `sitemap.xml` Synchronization:
   - Added `/ontario-dental-recruitment.html` to the header `Staffing` dropdown and footer `Staffing & Services` links across all 19 site HTML pages.
   - Synchronized `sitemap.xml` by adding `https://practizone.ca/ontario-dental-recruitment.html` with `<lastmod>2026-11-17</lastmod>`, `<changefreq>weekly</changefreq>`, and `<priority>0.85</priority>`.
+
+
+## [2026-11-18] - Dual-Business Weekly/Monthly Reporting Templates & Attribution Specification
+- Standardized Dual-Business Weekly & Monthly Reporting Templates (Sections 3 & 11 — Strictly Internal):
+  - Created `internal/weekly-lead-dashboard-template.csv` with all 24 required tracking columns (`Week_Starting`, `Business_Unit`, `Website_Sessions`, `Organic_Search_Visits`, `Cross_Site_Referral_Clicks`, `Inquiry_Submissions`, `Qualified_Leads`, `Consultations_Booked`, `Proposals_Sent`, `Customers_Or_Placements_Won`, `Conversion_Rate_Pct`, `Source_Google_Organic`, `Source_Paid_Search`, `Source_Social`, `Source_Direct`, `Source_PractiZone_Referral`, `Source_PractiOne_Referral`, `Source_Other`, `Attributed_Revenue_CAD`, `Referrals_Won_By_Destination`, `Unanswered_Leads`, `Avg_Response_Time_Hours`, `MylaTraining_Programs_Clicks`, `MylaTraining_Savings_Clicks`) and two clean baseline rows (`PractiZone` and `PractiOne`).
+  - Created `internal/monthly-seo-report-template.md` structured per Sections 5 & 11 of the client master brief, covering Dual-Business Executive Summary, Ontario Location & Service Keyword Rankings (explicitly separating Google Search Console average position from spot-checked location/device rank checks with tool, location, device, and date), Top Performing Landing Pages & GEO AI Citation Check, MylaTraining Cybersecurity Partner Outbound Clicks (Programs vs. Savings separated, noting third-party sales cannot be confirmed without partner affiliate reporting), and Prioritized Technical & Content Fixes.
+- Attribution, UTM Convention & LeadsMagnet CRM Specification:
+  - Created `internal/tracking-and-crm-spec.md` documenting cross-domain UTM parameters (`utm_source`, `utm_medium`, `utm_campaign`, `referring_site`, `landing_page`, `submission_date`) across `practizone.ca` <-> `practione.ca`.
+  - Documented the GA4 Event Map (`generate_lead`, `outbound_referral_click`, `employer_portal_click`, `candidate_portal_click`, `partner_outbound_click`, `lead_magnet_download`) aligned with `assets/js/main.js`.
+  - Codified Employer vs. Candidate lead separation rules so candidate portal registrations do not inflate employer sales metrics.
+  - Defined the ready-to-connect LeadsMagnet CRM webhook JSON payload (`buildCrmLeadPayload`) and dual-business pipeline stages:
+    - PractiZone Pipeline: `New Request -> Contacted -> Qualified Position -> Recruiting -> Filled / Closed`
+    - PractiOne Pipeline: `New Lead -> Contacted -> Assessment / Consultation -> Proposal Sent -> Won / Lost`
+  - Documented contact deduplication and multi-opportunity rules preserving original first-touch source while allowing one contact to hold separate opportunities across both businesses.
+- Security & Crawler Exclusion Verification:
+  - Verified `robots.txt` explicitly includes `Disallow: /internal/`.
+  - Verified `sitemap.xml` contains zero `/internal/` paths and no public HTML pages link to `/internal/` operational files.
