@@ -357,3 +357,37 @@
 - Security & Crawler Exclusion Verification:
   - Verified `robots.txt` explicitly includes `Disallow: /internal/`.
   - Verified `sitemap.xml` contains zero `/internal/` paths and no public HTML pages link to `/internal/` operational files.
+
+## [2026-11-19] - Client Handover Manual, Page Inventory & Staff Tracking Guide
+- Client & Operations Handover Documentation (Section 11 — Strictly Internal):
+  - Created `internal/HANDOVER.md` serving as the master client and operations handover manual for `practizone.ca`.
+  - Documented the complete live page inventory covering all 20 canonical URLs in `sitemap.xml` (core pages, Ontario recruitment hub, role landing pages, GTA regional pages, PractiOne consulting bridge, MylaTraining training page, portal/contact, and legal pages), including canonical URLs, target keywords, deployed JSON-LD schemas, and primary conversion CTAs, plus `.htaccess` legacy 301 redirect notes.
+  - Documented the step-by-step LeadsMagnet CRM webhook & API integration playbook referencing `buildCrmLeadPayload(formElement)` in `assets/js/main.js` and the 5-stage PractiZone pipeline (`New Request -> Contacted -> Qualified Position -> Recruiting -> Filled / Closed`), alongside employer vs. candidate lead separation rules.
+  - Added a non-technical Staff Guide explaining how to read FormSubmit email notifications and UTM parameters (`utm_source`, `utm_medium`, `utm_campaign`, `landing_page`), view `generate_lead`, `employer_portal_click`, `candidate_portal_click`, `outbound_referral_click`, and `partner_outbound_click` in GA4, and monitor Ontario keyword impressions/clicks in Google Search Console.
+  - Included the Administrator Access & Quarterly Maintenance Checklist (GSC, GA4, Hostinger/DNS, GitHub, FormSubmit, StafStar, LeadsMagnet API, and quarterly `internal/competitor-pricing-tracker.csv` review).
+- Security & Crawler Exclusion Verification:
+  - Confirmed `robots.txt` includes `Disallow: /internal/` so `internal/HANDOVER.md` and all operational templates remain blocked from search engine crawlers.
+  - Confirmed `sitemap.xml` contains only the 20 public canonical URLs and zero `/internal/` paths.
+
+## [2026-11-20] - Final 30-Day End-to-End QA, Accessibility, Performance & Indexing Sign-Off
+- Full Route, Redirect & Sitemap Integrity Audit:
+  - Audited `sitemap.xml` containing all 20 live canonical public URLs (`/`, `/staffing.html`, `/ontario-dental-recruitment.html`, `/hygienist-staffing.html`, `/assistant-staffing.html`, `/receptionist-recruitment.html`, `/temporary-dental-staffing.html`, `/dental-staffing-toronto.html`, `/dental-staffing-mississauga.html`, `/dental-staffing-brampton-vaughan.html`, `/dental-practice-consulting.html`, `/professional-development-training.html`, `/pricing.html`, `/testimonials.html`, `/about.html`, `/contact.html`, `/portal.html`, `/terms.html`, `/privacy.html`, `/terms-conditions.html`).
+  - Executed automated live `curl` HTTP checks across all 20 `sitemap.xml` routes: **20/20** returned direct `HTTP 200 OK` with zero redirect loops.
+  - Verified single-hop `301` canonical domain & legacy redirects:
+    - `http://practizone.ca/` -> `301` -> `https://practizone.ca/`
+    - `https://www.practizone.ca/` -> `301` -> `https://practizone.ca/`
+    - `https://practizone.ca/index.html` -> `301` -> `https://practizone.ca/`
+    - `https://practizone.ca/consulting-services.html` -> `301` -> `https://practizone.ca/dental-practice-consulting.html`
+  - Verified non-existent route (`https://practizone.ca/non-existent-qa-check-404`) returns `HTTP 404` (server default; no custom `404.html` deployed).
+  - Verified `https://practizone.ca/robots.txt` returns `HTTP 200 OK` with `Allow: /` and `Disallow: /internal/`, and confirmed `0` `/internal/` paths in `sitemap.xml`.
+- On-Page SEO, GEO Answer Blocks & JSON-LD Schema Audit:
+  - Audited all 21 HTML files in the repository: **0** duplicate `<title>` tags, **0** duplicate `<meta name="description">` tags, and 100% self-referencing `<link rel="canonical">` tags.
+  - Verified above-the-fold `.geo-answer-block` direct-answer blocks on Homepage, Ontario Recruitment Hub, all 4 role pages, and all 3 GTA regional pages.
+  - Validated all JSON-LD `<script type="application/ld+json">` blocks (`EmploymentAgency`, `Service`, `BreadcrumbList`, `FAQPage`) with **0** JSON syntax errors.
+- Conversion Flow, Form Validation & Cross-Referral QA:
+  - Verified `/contact.html` required fields, PIPEDA `#privacy_consent` checkbox, `#inquiry_type` employer vs. candidate separation (`#candidate-portal-notice`), and hidden attribution fields (`utm_source`, `utm_medium`, `utm_campaign`, `referring_site`, `landing_page`, `submission_date`) serialized by `buildCrmLeadPayload()` in `assets/js/main.js`.
+  - Confirmed all outbound PractiOne links include `utm_source=practizone` parameters and trigger `outbound_referral_click`.
+  - Confirmed all outbound MylaTraining partner links include `rel="noopener sponsored"` and trigger `partner_outbound_click`.
+- Accessibility, Mobile Responsiveness & Performance Asset Sign-Off:
+  - Verified semantic landmarks (`<header>`, `<main>`, `<nav>`, `<footer>`) are present on 100% of HTML pages and **0** `<img>` tags are missing `alt` attributes.
+  - Confirmed responsive CSS breakpoints (`1180px`, `1140px`, `860px`, `680px`) and `overflow-x: clip` prevent horizontal overflow on mobile viewports, and hero assets use compressed WebP images (`53 KB`–`97 KB`) with explicit dimensions.
